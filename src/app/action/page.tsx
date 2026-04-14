@@ -128,7 +128,7 @@ export default function Action() {
                 {showCalculations ? "Hide Calculations" : "View Calculations"}
               </button>
               <a 
-                href="https://github.com" 
+                href="https://github.com/T-J-D-Cavey" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors"

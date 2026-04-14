@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌊 Plastic Awareness MVP
 
-## Getting Started
+**"1.43 million bottles every second."**
 
-First, run the development server:
+An environmental awareness experiment that transforms abstract plastic pollution statistics into a visceral, real-time visual experience. This project aims to make the scale of global plastic production feel immediate and emotionally impactful, guiding users from awareness to meaningful action.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Live Demo](https://plastic.cavey.dev) | [Take Action](/action)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📸 The Concept
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Most people understand that plastic pollution is a problem, but the numbers—billions of tonnes, trillions of items—are too large for the human brain to truly process. 
 
-## Learn More
+This website uses a **real-time accumulation simulation** to show exactly what "1.43 million bottles per second" looks like. As you sit on the homepage, the counter climbs and the physical pile grows, making the relentless nature of production impossible to ignore.
 
-To learn more about Next.js, take a look at the following resources:
+### 📊 The Data
+- **Annual Production:** ~450 million tonnes of plastic.
+- **The Metric:** Based on a standard 500ml bottle (10g), this equates to roughly **45 trillion bottles per year**.
+- **The Flow:** ~1,427,000 bottles produced every single second.
+- **Source:** [Our World in Data — Plastic Pollution](https://ourworldindata.org/plastic-pollution)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Technical Stack
 
-## Deploy on Vercel
+Built with a focus on performance, smooth animations, and zero-latency transitions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Framework:** [Next.js 15+](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Visuals:** HTML5 Canvas + `requestAnimationFrame` for high-performance particle physics.
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Deployment:** [Vercel](https://vercel.com/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Key Features
+- **Deterministic Simulation:** The bottle counter and physics-based pile are synced to the user's arrival time, providing a consistent "real-time" feel.
+- **Instant Navigation:** Using Next.js App Router for immediate client-side transitions between the visualisation and the Action Hub.
+- **Mobile Optimized:** Fully responsive design with a "flush" mechanism to ensure the visualisation remains performant and readable on all devices.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18.x or later
+- npm / yarn / pnpm
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/T-J-D-Cavey/climate_project_gemini_2.0.git
+   cd climate_project_gemini_2.0
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 📣 Take Action
+
+The goal of this project isn't just to inform, but to move. The [Action Page](/action) provides direct links to:
+- **Greenpeace UK** & **Friends of the Earth**
+- **WWF** Conservation efforts
+- **UK Parliament Petitions**
+- **Ethical Consumer** guides for plastic-free living
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License. Data remains the property of the cited sources.
+
+*Created by [T.J.D. Cavey](https://github.com/T-J-D-Cavey)*

@@ -13,8 +13,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Plastic Pollution Visualisation | Climate Awareness",
-  description: "Visualising the scale of plastic pollution in real-time.",
+  title: "Plastic Pollution Visualisation | 1.43 Million Bottles Every Second",
+  description: "Every second, more plastic is produced. It doesn’t truly decompose but breaks up into smaller and smaller pieces called microplastics, which can persist in the environment almost indefinitely. It never stops accumulating.",
+  keywords: ["plastic pollution", "climate change", "sustainability", "environmental awareness", "visualisation"],
+  authors: [{ name: "T.J.D. Cavey" }],
+  openGraph: {
+    title: "Plastic Pollution Visualisation | 1.43 Million Bottles Every Second",
+    description: "Visualising the relentless scale of global plastic production in real-time.",
+    url: "https://plastic.cavey.dev", // Placeholder or actual URL if known
+    siteName: "Plastic Awareness MVP",
+    type: "website",
+    locale: "en_GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Plastic Pollution Visualisation | 1.43 Million Bottles Every Second",
+    description: "Visualising the relentless scale of global plastic production in real-time.",
+  },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
