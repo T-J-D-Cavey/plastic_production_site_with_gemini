@@ -1,14 +1,44 @@
 # Next Steps
 
-## ✅ What I Did
-- Implemented **BottleVisualisation** component using HTML5 Canvas for high-performance animation of plastic bottle production scale (1.43M bottles/sec).
-- Redesigned the **Homepage** to be visually impactful with a dark theme (slate-950) and real-time counter.
-- Developed the **Action Page** with a curated list of high-impact environmental organizations and petitions.
-- Unified the site design with a consistent dark theme and high-contrast typography.
-- Fixed React purity linting errors in the visualization component.
-- Completed all phases of the project plan.
 
-## 🔜 What's Next
-- **Deployment:** The project is ready for deployment (e.g., to Vercel).
-- **Audit:** Conduct a final manual review of the visual impact and performance on various devices.
-- **Expansion (Optional):** Add more data visualizations (e.g., carbon footprint, deforestation rates) following the same "real-time scale" pattern.
+## ✅ What Was Done (Current Session)
+- **Visceral Accumulation implemented:** Bottles now pile up at the bottom of the screen instead of fading out, visually demonstrating that plastic stays in the environment.
+- **Explicit Scale Key added:** A new UI element explains that "1 Visual Bottle = 1,427,000 Real Units", bridging the gap between abstract numbers and the animation.
+- **"Reset & Loop" implemented:** Added a "flush" mechanism where the pile clears once it reaches a certain height, reinforcing the relentless and unsustainable nature of production.
+- **Accessibility & UX Refinements:** Added `aria-live` to the counter and refined the "Since you arrived" typography for better impact and clarity.
+- **Visual Polish:** Improved bottle shapes and added a "bornAt" timestamp to particles to manage their lifecycle.
+
+
+## 🔍 Codebase Review
+- **Alignment with Spec:**
+    - The simulation now matches the "one bottle per second" and "resetting and looping" instructions from the product spec.
+    - The Scale Key is now prominent and easy to understand.
+- **Technical Performance:**
+    - The particle count is kept stable even with the "flush" mechanism.
+    - Canvas rendering remains high-performance despite the "pile height" calculation.
+- **User Experience:**
+    - The "Since you arrived" counter feels more urgent with the visual support of landing bottles.
+
+
+## 🔜 Recommended Next Steps (Refining the MVP)
+
+
+### 1. Final Polish: "Urgent Escape" CTA
+- **Change:** Enhance the "Do Something About It" button to feel like an urgent escape from the overwhelming data. Maybe add a "count-up" or "pressure" effect to the UI as the pile grows.
+- **Impact:** Increases conversion to the Action Page.
+
+
+### 2. Sound Effects (Optional)
+- **Change:** Add a subtle "thud" or "clink" when bottles land and a "whoosh/flush" sound when the pile resets.
+- **Impact:** Adds a layer of sensory impact that reinforces the physical presence of the plastic.
+
+
+### 3. SEO & Metadata
+- **Change:** Ensure the site has proper environmental awareness meta tags and social sharing images.
+- **Impact:** Improves visibility when shared.
+
+
+---
+
+
+**Next Task:** Enhance the **CTA (Do Something About It)** and add **Sound Effects** for maximum emotional impact.
