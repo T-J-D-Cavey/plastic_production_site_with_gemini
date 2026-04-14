@@ -23,22 +23,16 @@
 ## 🔜 Recommended Next Steps (Refining the MVP)
 
 
-### 1. Final Polish: "Urgent Escape" CTA
-- **Change:** Enhance the "Do Something About It" button to feel like an urgent escape from the overwhelming data. Maybe add a "count-up" or "pressure" effect to the UI as the pile grows.
-- **Impact:** Increases conversion to the Action Page.
+### 1. Add section to 'take action' page
+- Below all of the sections related to taking action there is a paragraph that reads "Data provided by Our World in Data. All links lead to external organisations committed to environmental action." This section needs to be in its own distinct section (in a different style to the take action sections so it's clear this isn't another take action option). Within this section, include a link to Our World. Include the calculatiosn for plastic. Include a 'visit the creator's Github' link option. Include a 'share the link' button that lets the user click on it and it saves the URL to the user device's clipbouard. When clicked, the 'share the link' text is replaced with 'Send this link to your people and spread the word'. 
 
 
-### 2. Sound Effects (Optional)
-- **Change:** Add a subtle "thud" or "clink" when bottles land and a "whoosh/flush" sound when the pile resets.
-- **Impact:** Adds a layer of sensory impact that reinforces the physical presence of the plastic.
-
-
-### 3. SEO & Metadata
-- **Change:** Ensure the site has proper environmental awareness meta tags and social sharing images.
-- **Impact:** Improves visibility when shared.
+### 2. Edits to text in the landing page:
+- "Plastic bottles produced" H1 to be changed to "Water bottles worth of plastic has been produced"
+- "Global production reaches 1.43 million bottles every second. Relentless. Unsustainable. Accumulating" should be replaced with "Annual global plastic production is ~450 million tonnes, equivalnt to 1.43 million water bottles produced every second."
+- "Real-time visual scale" text can be removed
+- "Actual bottles produced" text in the key to be replaced with "Water bottles every second". 
 
 
 ---
 
-
-**Next Task:** Enhance the **CTA (Do Something About It)** and add **Sound Effects** for maximum emotional impact.
