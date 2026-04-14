@@ -1,7 +1,7 @@
 # Project Plan — Climate Awareness MVP
 
 ## Phase 1: Foundation
-- [ ] **Step 1: Initialize Next.js Project**
+- [x] **Step 1: Initialize Next.js Project**
     - Setup Next.js with App Router, TypeScript, and Tailwind CSS.
     - Clean up default boilerplate.
     - Configure basic layout and navigation.
