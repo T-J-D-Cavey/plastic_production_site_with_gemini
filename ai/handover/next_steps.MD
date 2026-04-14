@@ -2,37 +2,39 @@
 
 
 ## ✅ What Was Done (Current Session)
-- **Visceral Accumulation implemented:** Bottles now pile up at the bottom of the screen instead of fading out, visually demonstrating that plastic stays in the environment.
-- **Explicit Scale Key added:** A new UI element explains that "1 Visual Bottle = 1,427,000 Real Units", bridging the gap between abstract numbers and the animation.
-- **"Reset & Loop" implemented:** Added a "flush" mechanism where the pile clears once it reaches a certain height, reinforcing the relentless and unsustainable nature of production.
-- **Accessibility & UX Refinements:** Added `aria-live` to the counter and refined the "Since you arrived" typography for better impact and clarity.
-- **Visual Polish:** Improved bottle shapes and added a "bornAt" timestamp to particles to manage their lifecycle.
+- **Landing Page Text Refinement:** Updated the primary copy to focus on "Water bottles worth of plastic" and included the annual production figure (~450m tonnes).
+- **Interactive Calculations:** Implemented a "View Calculations" toggle on the Action page that reveals the mathematical breakdown of the 1.43m bottles/second figure.
+- **Sequential Share Feedback:** Refined the "Share link" button to show a multi-stage success state ("Link copied" followed by "Send this link to your people...").
+- **Header Refinement:** Moved the external link attribution to the header of the Action page for better visibility and context.
+- **Client-Side Migration:** Converted the Action page to a Client Component to support stateful interactive features.
 
 
 ## 🔍 Codebase Review
 - **Alignment with Spec:**
-    - The simulation now matches the "one bottle per second" and "resetting and looping" instructions from the product spec.
-    - The Scale Key is now prominent and easy to understand.
-- **Technical Performance:**
-    - The particle count is kept stable even with the "flush" mechanism.
-    - Canvas rendering remains high-performance despite the "pile height" calculation.
+    - The landing page now carries the specific "Water bottles worth of plastic" messaging requested.
+    - The action page now transparently explains the data sources and calculations behind the animation.
 - **User Experience:**
-    - The "Since you arrived" counter feels more urgent with the visual support of landing bottles.
+    - The sequential feedback on the share button provides immediate technical confirmation ("Link copied") followed by a social nudge.
+    - The calculation breakdown builds trust by showing the logic behind the "1.43 million" figure.
 
 
 ## 🔜 Recommended Next Steps (Refining the MVP)
 
 
-### 1. Add section to 'take action' page
-- Below all of the sections related to taking action there is a paragraph that reads "Data provided by Our World in Data. All links lead to external organisations committed to environmental action." This section needs to be in its own distinct section (in a different style to the take action sections so it's clear this isn't another take action option). Within this section, include a link to Our World. Include the calculatiosn for plastic. Include a 'visit the creator's Github' link option. Include a 'share the link' button that lets the user click on it and it saves the URL to the user device's clipbouard. When clicked, the 'share the link' text is replaced with 'Send this link to your people and spread the word'. 
+### 1. Link & Attribution Polish
+- Update the "Visit Creator's GitHub" link with the actual repository URL.
+- Current placeholder calculations use 10g per bottle; verify if we should provide a range or source for this average weight.
 
 
-### 2. Edits to text in the landing page:
-- "Plastic bottles produced" H1 to be changed to "Water bottles worth of plastic has been produced"
-- "Global production reaches 1.43 million bottles every second. Relentless. Unsustainable. Accumulating" should be replaced with "Annual global plastic production is ~450 million tonnes, equivalnt to 1.43 million water bottles produced every second."
-- "Real-time visual scale" text can be removed
-- "Actual bottles produced" text in the key to be replaced with "Water bottles every second". 
+### 2. Social Meta Tags (SEO)
+- Implement `OpenGraph` and `Twitter` cards in `layout.tsx` so that when the link is shared, it generates a high-impact preview (ideally showing the pile of bottles).
 
+
+### 3. Dynamic Facts
+- Consider adding a "Did you know?" ticker in the footer of the landing page that rotates through other plastic-related statistics.
+
+
+### 4. Mobile Visualisation Tuning
+- Test the "flush" mechanism on mobile devices to ensure the pile height doesn't overlap the "Do Something About It" button.
 
 ---
-

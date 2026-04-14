@@ -177,18 +177,14 @@ export default function BottleVisualisation() {
         
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
           <h1 className="text-3xl md:text-6xl font-bold tracking-tight">
-            Plastic Bottles Produced
+            Water bottles worth of plastic has been produced
           </h1>
           
           <p className="text-lg md:text-2xl text-slate-400 leading-relaxed">
-            Global production reaches <span className="text-white font-bold underline decoration-blue-500 underline-offset-8">1.43 million bottles every second</span>. 
-            Relentless. Unsustainable. Accumulating.
+            Annual global plastic production is ~450 million tonnes, equivalent to <span className="text-white font-bold underline decoration-blue-500 underline-offset-8">1.43 million water bottles produced every second</span>.
           </p>
           
           <div className="mt-12 flex flex-col items-center">
-            <div className="text-xs font-black text-slate-600 uppercase tracking-[0.4em] mb-4">
-              Real-time Visual Scale
-            </div>
             <div className="flex items-center gap-6 bg-slate-900/80 backdrop-blur-sm px-8 py-4 rounded-2xl border border-slate-800 shadow-2xl">
               <div className="flex flex-col items-center">
                 <div className="w-5 h-12 bg-blue-500/70 rounded-sm relative mb-1">
@@ -205,7 +201,7 @@ export default function BottleVisualisation() {
                   1,427,000
                 </div>
                 <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">
-                  Actual Bottles Produced
+                  Water bottles every second
                 </div>
               </div>
             </div>
