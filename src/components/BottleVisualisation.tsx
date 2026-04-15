@@ -165,8 +165,8 @@ export default function BottleVisualisation() {
       />
       
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 select-none">
-        <h2 className="text-xl md:text-2xl font-light mb-2 tracking-widest uppercase text-slate-500">
-          Since you arrived
+        <h2 className="text-xl md:text-2xl font-light mb-2 tracking-widest uppercase text-slate-500 text-center">
+          Since you arrived, an equivalent of
         </h2>
         <div 
           className="text-6xl md:text-9xl font-black mb-6 tabular-nums text-blue-400 drop-shadow-[0_0_20px_rgba(59,130,246,0.3)]"
@@ -177,11 +177,11 @@ export default function BottleVisualisation() {
         
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
           <h1 className="text-3xl md:text-6xl font-bold tracking-tight">
-            Water bottles worth of plastic has been produced
+            Plastic water bottles has been produced
           </h1>
           
           <p className="text-lg md:text-2xl text-slate-400 leading-relaxed">
-            Annual global plastic production is ~450 million tonnes, equivalent to <span className="text-white font-bold underline decoration-blue-500 underline-offset-8">1.43 million water bottles produced every second</span>.
+            Annual global plastic production is ~450 million tonnes, equivalent to <span className="text-white font-bold underline decoration-blue-500 underline-offset-8">1.427 million water bottles produced every second</span>.
           </p>
           
           <div className="mt-12 flex flex-col items-center">
@@ -191,7 +191,7 @@ export default function BottleVisualisation() {
                   <div className="absolute top-0 left-0 w-full h-2 bg-white/30 rounded-t-sm"></div>
                   <div className="absolute top-1/2 left-0 w-full h-3 bg-white/10"></div>
                 </div>
-                <div className="text-[10px] font-bold text-blue-400/60">1 VISUAL</div>
+                <div className="text-[10px] font-bold text-blue-400/60">1 BOTTLE</div>
               </div>
               
               <div className="text-2xl font-light text-slate-500">=</div>
