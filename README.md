@@ -2,7 +2,7 @@
 
 **"1.43 million bottles every second."**
 
-An environmental awareness experiment that transforms abstract plastic pollution statistics into a visceral, real-time visual experience. This project aims to make the scale of global plastic production feel immediate and emotionally impactful, guiding users from awareness to meaningful action.
+An environmental awareness experiment using Gemini CLI coding agent, that aims to transform abstract plastic pollution statistics into a visceral, real-time visual experience. This project aims to make the scale of global plastic production feel immediate and emotionally impactful, guiding users from awareness to meaningful action.
 
 [Live Demo](https://plastic.cavey.dev) | [Take Action](/action)
 

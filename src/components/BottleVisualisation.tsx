@@ -55,7 +55,7 @@ export default function BottleVisualisation() {
       if (startTimeRef.current === null) return;
       const now = Date.now();
       const elapsedSeconds = (now - startTimeRef.current) / 1000;
-      setTotalBottles(Math.floor(elapsedSeconds * BOTTLES_PER_SECOND));
+      setTotalBottles(elapsedSeconds * BOTTLES_PER_SECOND);
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -169,10 +169,14 @@ export default function BottleVisualisation() {
           Since you arrived, an equivalent of
         </h2>
         <div 
-          className="text-6xl md:text-9xl font-black mb-6 tabular-nums text-blue-400 drop-shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+          className="text-6xl md:text-9xl font-black mb-6 tabular-nums text-blue-400 drop-shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-baseline gap-4"
           aria-live="polite"
         >
-          {totalBottles.toLocaleString()}
+          {(totalBottles / 1000000).toLocaleString(undefined, {
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 1,
+          })}
+          <span className="text-3xl md:text-5xl font-bold uppercase tracking-tighter text-blue-500/40">Million</span>
         </div>
         
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
