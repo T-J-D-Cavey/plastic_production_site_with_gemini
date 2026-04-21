@@ -67,7 +67,7 @@ export default function Action() {
           </h1>
           <div className="space-y-4">
             <p className="text-xl text-slate-400 max-w-2xl">
-              Individual choices matter, but collective action drives change. Choose a path below to help turn the tide on plastic pollution.
+              Individual choices matter, but collective action drives change. Choose a path below to help turn the tide on plastic pollution and environmental destruction.
             </p>
             <p className="text-slate-500 italic">
               All links lead to external organisations committed to environmental action.
@@ -117,6 +117,15 @@ export default function Action() {
                 className="text-blue-400 hover:underline"
               >
                 Our World in Data
+              </a>{" "}
+              and the{" "}
+              <a 
+                href="https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                FAO
               </a>.
             </p>
 
@@ -146,12 +155,24 @@ export default function Action() {
             </div>
 
             {showCalculations && (
-              <div className="mt-8 p-6 bg-slate-950/50 rounded-2xl text-left border border-slate-800 animate-in fade-in slide-in-from-top-4 duration-300">
-                <p className="text-slate-300 leading-relaxed">
-                  Annual global plastic production is approximately <strong>450 million tonnes</strong>. 
-                  A standard 500ml plastic bottle weighs around <strong>10 grams</strong>. 
-                  Dividing total plastic mass by bottle weight gives roughly <strong>45 trillion bottles per year</strong> — or about <strong>1,427,000 every second</strong>.
-                </p>
+              <div className="mt-8 space-y-4 animate-in fade-in slide-in-from-top-4 duration-300">
+                <div className="p-6 bg-slate-950/50 rounded-2xl text-left border border-slate-800">
+                  <h4 className="text-sm font-bold text-blue-500 uppercase tracking-wider mb-2">Plastic Production</h4>
+                  <p className="text-slate-300 leading-relaxed">
+                    Annual global plastic production is approximately <strong>450 million tonnes</strong>. 
+                    A standard 500ml plastic bottle weighs around <strong>10 grams</strong>. 
+                    Dividing total plastic mass by bottle weight gives roughly <strong>45 trillion bottles per year</strong> — or about <strong>1,427,000 every second</strong>.
+                  </p>
+                </div>
+
+                <div className="p-6 bg-slate-950/50 rounded-2xl text-left border border-slate-800">
+                  <h4 className="text-sm font-bold text-amber-500 uppercase tracking-wider mb-2">Global Deforestation</h4>
+                  <p className="text-slate-300 leading-relaxed">
+                    Annual global forest loss is approximately <strong>10.9 million hectares</strong>. 
+                    With 31,536,000 seconds in a year, this results in <strong>0.3459 hectares</strong> lost every second. 
+                    As a football pitch is roughly 0.714 hectares, this equates to <strong>0.5 pitches per second</strong> (one every two seconds).
+                  </p>
+                </div>
               </div>
             )}
           </div>

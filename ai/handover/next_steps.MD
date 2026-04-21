@@ -1,28 +1,28 @@
 # Next Steps
 
 ## ✅ What Was Done (This Session)
-- **Implemented `DeforestationVisualisation.tsx`:** Created a new canvas-based visualization showing ~5 football pitches of forest loss per second with a grid-based accumulation and reset system.
-- **Refactored Landing Page (`src/app/page.tsx`):** Transitioned to a vertical scrolling layout using CSS scroll snapping (`snap-y snap-mandatory`).
-- **Added Navigation Cues:** Re-introduced a bouncing scroll indicator on the first section to guide users.
-- **Improved Accessibility:** Added `aria-live="polite"` and `aria-atomic="true"` to real-time counters in both visualizations.
-- **Fixed CTA:** Positioned the "Do Something About It" button as a fixed element at the bottom for constant accessibility across sections.
+- **Updated `product_specifications.MD`**: Added the "Homepage — Deforestation Visualisation" section with detailed data, calculations (0.5 pitches/sec), and visual direction to match the existing plastic pollution specs.
+- **Updated Action Page (`src/app/action/page.tsx`)**: 
+    - Expanded the introductory text to include environmental destruction alongside plastic pollution.
+    - Updated the data source section to include the FAO (Food and Agriculture Organization).
+    - Refactored the calculations toggle to show two distinct, well-formatted boxes: one for Plastic Production and one for Global Deforestation.
+- **Synchronized Data**: Ensured that the documentation, calculations, and `DeforestationVisualisation.tsx` implementation all consistently use the ~0.5 football pitches per second figure.
 
 ## 🔜 What's Next
-### 1. Performance & Tuning
-- Monitor performance on lower-end devices for the dual-canvas setup.
-- Tune the "clear and reset" threshold in `DeforestationVisualisation` for different aspect ratios (mobile vs. desktop).
+### 1. Action Page Expansion
+- Consider adding specific action links for deforestation (e.g., Rainforest Alliance, Woodland Trust).
+- Add a "Did you know?" section to further connect the visualisations to specific impacts.
 
-### 2. Further Expansion
-- Consider a third section for **Global Temperature Rise** or **CO2 Emissions**.
-- Add a "Share this" feature to help the awareness spread.
-- Deepen the "Action Page" with more granular, local actions based on user location (if feasible in future phases).
+### 2. Performance & Tuning
+- Monitor performance on lower-end devices for the dual-canvas setup now that both visualisations are fully documented and integrated.
+- Fine-tune the "clear and reset" threshold in `DeforestationVisualisation` for different aspect ratios.
 
 ### 3. Visual Polish
-- Add a smooth fade or transition effect when snapping between sections if possible without breaking native scroll feel.
-- Experiment with more detailed forest "textures" in the background of the deforestation view.
+- Add smooth transitions when switching between the two visualisation sections on the homepage.
+- Experiment with adding a "soundscape" (e.g., subtle forest sounds vs. industrial noise) to increase emotional impact.
 
 ---
 
 ## 🔍 Codebase Review Findings
-- **Fixed:** All counters now have accessibility properties.
-- **Note:** The fixed CTA button is z-indexed at 50 to ensure it stays above the visualizations.
+- The `DeforestationVisualisation.tsx` was already correctly implemented at 0.5 pitches/sec, which is now accurately reflected in all documentation.
+- The Action page calculations are now more robust and provide better context for both visualisations.

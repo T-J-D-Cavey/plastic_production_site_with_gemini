@@ -81,6 +81,38 @@ Water bottles filling a section of the screen, one bottle appearing per second, 
 
 
 
+## Homepage — Deforestation Visualisation
+
+
+
+
+**Concept:**
+Continuous loss of forest areas and natural ecosystems at an unsustainable rate.
+
+
+**Data:**
+Forest Loss → Football Pitches per Second
+Final Figure = 0.5 (≈ half) a football pitch per second
+
+
+***Calculation***
+Annual global forest loss is approximately 10.9 million hectares. There are 31,536,000 seconds in a year, resulting in ~0.3459 hectares lost per second. Since one football pitch is roughly 0.714 hectares, this equates to approximately 0.485 (rounded to 0.5) football pitches every second.
+
+
+***Data Source***
+FAO — Global Forest Resources Assessment 2025
+https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows
+
+
+**Visual Direction:**
+A grid of football pitch outlines appearing over a dark forest background. One pitch appears every two seconds (0.5/sec), accumulating until the screen is full before resetting. A key explains the conversion from hectares to pitches.
+
+
+---
+
+
+
+
 ## Action Page
 
 

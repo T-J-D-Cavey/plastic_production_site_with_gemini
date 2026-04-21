@@ -53,3 +53,9 @@ The background is some kind of pattern that represents a forest from vertically 
 
 
 ---
+
+## Data Source
+
+
+FAO — *Global Forest Resources Assessment 2025*
+https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows
