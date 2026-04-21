@@ -1,27 +1,28 @@
 # Next Steps
 
-## ✅ What Was Done (Current Session)
-- **Removed Scroll Indicator:** Deleted the bounce animation and icon from the landing page as it was misleading (nothing below the fold).
-- **Metadata Enhancement:** Updated `layout.tsx` with full SEO metadata, including OpenGraph and Twitter cards, author information, and relevant keywords.
-- **Codebase Review:** Verified data accuracy and responsiveness across both pages.
-- **Documentation Review:** Reviewed `product_specifications.MD` and `ai_agent_rules.MD` for compliance.
-- **README Rewrite:** Overhauled the `README.md` to include technical stack details, project concepts, and installation instructions for a high-quality side project profile.
+## ✅ What Was Done (This Session)
+- **Implemented `DeforestationVisualisation.tsx`:** Created a new canvas-based visualization showing ~5 football pitches of forest loss per second with a grid-based accumulation and reset system.
+- **Refactored Landing Page (`src/app/page.tsx`):** Transitioned to a vertical scrolling layout using CSS scroll snapping (`snap-y snap-mandatory`).
+- **Added Navigation Cues:** Re-introduced a bouncing scroll indicator on the first section to guide users.
+- **Improved Accessibility:** Added `aria-live="polite"` and `aria-atomic="true"` to real-time counters in both visualizations.
+- **Fixed CTA:** Positioned the "Do Something About It" button as a fixed element at the bottom for constant accessibility across sections.
+
+## 🔜 What's Next
+### 1. Performance & Tuning
+- Monitor performance on lower-end devices for the dual-canvas setup.
+- Tune the "clear and reset" threshold in `DeforestationVisualisation` for different aspect ratios (mobile vs. desktop).
+
+### 2. Further Expansion
+- Consider a third section for **Global Temperature Rise** or **CO2 Emissions**.
+- Add a "Share this" feature to help the awareness spread.
+- Deepen the "Action Page" with more granular, local actions based on user location (if feasible in future phases).
+
+### 3. Visual Polish
+- Add a smooth fade or transition effect when snapping between sections if possible without breaking native scroll feel.
+- Experiment with more detailed forest "textures" in the background of the deforestation view.
+
+---
 
 ## 🔍 Codebase Review Findings
-- **Mobile Overlap Risk:** The "flush" mechanism in `BottleVisualisation.tsx` triggers at 30% of canvas height. On some mobile devices, this might cause the bottle pile to overlap the "Do Something About It" button before it flushes.
-- **Production URL:** The metadata now includes a placeholder URL (`https://plastic.cavey.dev`). This should be updated if a different domain is used.
-- **Accessibility:** Added `aria-live="polite"` to the main counter to ensure it's readable by screen readers.
-
-## 🔜 Recommended Next Steps (Refining for Deployment)
-
-### 1. Final URL Verification
-- Ensure the `openGraph.url` in `src/app/layout.tsx` matches the final production domain.
-
-### 2. Mobile-Specific Flush Tuning
-- Consider reducing the flush threshold from `0.3` to `0.2` if testing on smaller screens shows overlap with the main CTA button.
-
-### 3. Social Image (OG Image)
-- Add a physical `opengraph-image.png` (or `.jpg`) to the `src/app/` directory to ensure high-impact visual previews on social platforms.
-
-### 4. Dynamic Facts (Optional)
-- As previously suggested, a small ticker for additional statistics could add more depth to the landing page.
+- **Fixed:** All counters now have accessibility properties.
+- **Note:** The fixed CTA button is z-indexed at 50 to ensure it stays above the visualizations.

@@ -167,7 +167,11 @@ export default function BottleVisualisation() {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 select-none">
         <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-center max-w-4xl mb-8 leading-tight">
           Since you arrived, an equivalent of{" "}
-          <span className="text-blue-400 tabular-nums">
+          <span 
+            className="text-blue-400 tabular-nums"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             {(totalBottles / 1000000).toLocaleString(undefined, {
               minimumFractionDigits: 1,
               maximumFractionDigits: 1,
@@ -179,7 +183,7 @@ export default function BottleVisualisation() {
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
           
           <p className="text-lg md:text-2xl text-slate-400 leading-relaxed">
-            Annual global plastic production is ~450 million tonnes, equivalent to <span className="text-white font-bold underline decoration-blue-500 underline-offset-8">1.4 million</span> water bottles produced every second.
+            Annual global plastic production is ~450 million tonnes, equivalent to <span className="text-white font-bold underline decoration-blue-500 underline-offset-8">1.4 million water bottles</span> produced every second.
           </p>
           
           <div className="mt-12 flex flex-col items-center">

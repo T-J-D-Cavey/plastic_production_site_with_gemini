@@ -21,3 +21,13 @@
     - Apply final styling consistent with the emotional impact goal.
     - Ensure full mobile responsiveness.
     - Final audit against MVP success criteria.
+
+## Phase 4: Expansion
+- [x] **Step 5: Deforestation Visualisation**
+    - Implement the "4.85 football pitches per second" simulation as defined in `deforestation_changes.MD`.
+    - Create a persistent visual system where pitches accumulate and reset when the background is full.
+
+- [x] **Step 6: Multi-Section Landing Page**
+    - Refactor `src/app/page.tsx` to support vertical scrolling between Plastic and Deforestation sections.
+    - Re-introduce scroll indicators to guide the user to the second section.
+    - Ensure the CTA "Do Something About It" remains accessible or is repeated effectively.
