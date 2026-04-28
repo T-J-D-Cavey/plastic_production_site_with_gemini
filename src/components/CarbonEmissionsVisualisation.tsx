@@ -145,7 +145,7 @@ export default function CarbonEmissionsVisualisation() {
             aria-live="polite"
             aria-atomic="true"
           >
-            {Math.floor(totalCO2).toLocaleString()}
+            {(totalCO2 / 1000).toFixed(1)}k
           </span>{" "}
           tonnes of CO₂ have been released from fossil fuels alone
         </h1>
