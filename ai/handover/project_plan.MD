@@ -31,3 +31,8 @@
     - Refactor `src/app/page.tsx` to support vertical scrolling between Plastic and Deforestation sections.
     - Re-introduce scroll indicators to guide the user to the second section.
     - Ensure the CTA "Do Something About It" remains accessible or is repeated effectively.
+
+- [ ] **Step 7: Carbon Emissions Visualisation**
+    - Implement the "1,186 tonnes of CO₂ per second" simulation as defined in `carbon_emissions_changes.MD`.
+    - Create a visual system where a tree icon (🌳) appears every second, representing 54,000 mature trees needed to offset that emission.
+    - Icons should appear in random positions but snap to a grid, eventually forming a "forest" that fills the screen and resets.

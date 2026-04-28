@@ -1,28 +1,26 @@
 # Next Steps
 
 ## ✅ What Was Done (This Session)
-- **Updated `product_specifications.MD`**: Added the "Homepage — Deforestation Visualisation" section with detailed data, calculations (0.5 pitches/sec), and visual direction to match the existing plastic pollution specs.
-- **Updated Action Page (`src/app/action/page.tsx`)**: 
-    - Expanded the introductory text to include environmental destruction alongside plastic pollution.
-    - Updated the data source section to include the FAO (Food and Agriculture Organization).
-    - Refactored the calculations toggle to show two distinct, well-formatted boxes: one for Plastic Production and one for Global Deforestation.
-- **Synchronized Data**: Ensured that the documentation, calculations, and `DeforestationVisualisation.tsx` implementation all consistently use the ~0.5 football pitches per second figure.
+- **Updated `product_specifications.MD`**: Added the "Homepage — Carbon Emissions Visualisation" section with detailed data (1,186 tonnes/sec), offset calculations (54,000 trees/sec), and visual direction.
+- **Updated `project_plan.MD`**: Added Step 7 for the implementation of the Carbon Emissions Visualisation.
+- **Reviewed Documentation**: Integrated the calculations and logic from `carbon_emissions_changes.MD` into the core project specifications.
 
 ## 🔜 What's Next
-### 1. Action Page Expansion
-- Consider adding specific action links for deforestation (e.g., Rainforest Alliance, Woodland Trust).
-- Add a "Did you know?" section to further connect the visualisations to specific impacts.
+### 1. Carbon Emissions Implementation
+- **Create `CarbonEmissionsVisualisation.tsx`**: Implement the 1,186 tonnes/sec counter and the tree-growing simulation.
+- **Visual Logic**: Use a grid system (similar to `DeforestationVisualisation.tsx`) where tree icons appear in random grid cells every second.
+- **Refactor Landing Page**: Add the third section to `src/app/page.tsx` and ensure smooth snap-scrolling.
 
-### 2. Performance & Tuning
-- Monitor performance on lower-end devices for the dual-canvas setup now that both visualisations are fully documented and integrated.
-- Fine-tune the "clear and reset" threshold in `DeforestationVisualisation` for different aspect ratios.
+### 2. Action Page Expansion
+- Add specific action links for carbon reduction and reforestation.
+- Update the "Calculations" section to include the Carbon Emissions breakdown.
 
-### 3. Visual Polish
-- Add smooth transitions when switching between the two visualisation sections on the homepage.
-- Experiment with adding a "soundscape" (e.g., subtle forest sounds vs. industrial noise) to increase emotional impact.
+### 3. Performance & Tuning
+- Monitor performance as the number of canvas-based sections increases.
+- Optimize asset loading for the tree icons (emojis or SVGs).
 
 ---
 
 ## 🔍 Codebase Review Findings
-- The `DeforestationVisualisation.tsx` was already correctly implemented at 0.5 pitches/sec, which is now accurately reflected in all documentation.
-- The Action page calculations are now more robust and provide better context for both visualisations.
+- The "forest" visual logic already exists in a skeletal form within the grid-filling logic of `DeforestationVisualisation.tsx`, which can be adapted for the Carbon Emissions tree grid.
+- All three major environmental metrics (Plastic, Deforestation, Carbon) are now fully documented and ready for full implementation.

@@ -108,6 +108,42 @@ https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-rema
 A grid of football pitch outlines appearing over a dark forest background. One pitch appears every two seconds (0.5/sec), accumulating until the screen is full before resetting. A key explains the conversion from hectares to pitches.
 
 
+
+
+---
+
+
+
+
+## Homepage — Carbon Emissions Visualisation
+
+
+
+
+**Concept:**
+The overwhelming scale of CO₂ emissions and the impossible number of trees required to offset them in real-time.
+
+
+**Data:**
+Carbon Emissions → Tonnes of CO₂ per Second
+Final Figure = 1,186 tonnes of CO₂ per second
+
+
+***Calculation***
+Global annual CO₂ emissions are approximately 37.4 billion tonnes. Dividing by the number of seconds in a year (31,536,000) gives approximately 1,186 tonnes per second. One mature tree absorbs ~0.022 tonnes of CO₂ per year, meaning it would take 54,000 trees growing for a full year to absorb the emissions from just one second.
+
+
+***Data Source***
+Global Carbon Project — Carbon Budget 2024
+https://globalcarbonproject.org/carbonbudget/
+
+
+**Visual Direction:**
+A grid of tree icons (🌳) appearing over a dark, industrial or atmospheric background. One tree appears every second, representing the annual growth of 54,000 trees needed to offset that single second of emissions. Icons appear in random positions but eventually fill a structured forest grid before resetting.
+
+
+
+
 ---
 
 
