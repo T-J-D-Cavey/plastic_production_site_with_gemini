@@ -1,3 +1,8 @@
+---
+title: Product Specifications
+description: Comprehensive overview of the project's features, visual direction, and target metrics.
+relevance: Foundational document for understanding the overall product vision.
+---
 # Climate Awareness Website — MVP Product Specification
 
 

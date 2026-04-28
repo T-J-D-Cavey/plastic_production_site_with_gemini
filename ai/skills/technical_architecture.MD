@@ -1,3 +1,8 @@
+---
+title: Technical Architecture
+description: Overview of the tech stack, component structure, and deployment strategy.
+relevance: Essential for understanding the codebase organization and development workflow.
+---
 # Technical Architecture
 
 

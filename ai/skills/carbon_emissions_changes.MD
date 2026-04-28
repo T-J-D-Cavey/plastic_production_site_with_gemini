@@ -1,3 +1,8 @@
+---
+title: Carbon Emissions Data & Calculations
+description: Specification for the carbon emissions visualization, including data sources and math.
+relevance: Critical for implementing the CarbonEmissionsVisualisation component.
+---
 Final Section Structure
 1. Dynamic headline counter
 

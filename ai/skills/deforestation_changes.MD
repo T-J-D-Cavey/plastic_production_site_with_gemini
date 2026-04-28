@@ -1,3 +1,8 @@
+---
+title: Deforestation Data & Calculations
+description: Specification for the deforestation visualization, including data sources and math.
+relevance: Context for the DeforestationVisualisation component.
+---
 ### 2. Deforestation
 
 

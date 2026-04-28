@@ -1,3 +1,8 @@
+---
+title: AI Agent Rules
+description: Core principles and constraints for AI agents working on the Climate Awareness project.
+relevance: Essential for understanding behavioral expectations and project-specific mandates.
+---
 # 🤖 Agentic AI Working Guidelines
 
 

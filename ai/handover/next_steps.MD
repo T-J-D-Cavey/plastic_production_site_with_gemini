@@ -1,26 +1,40 @@
+---
+title: Next Steps
+description: Immediate tasks and long-term goals for the project.
+relevance: Guide for current and future development sessions.
+---
 # Next Steps
 
 ## ✅ What Was Done (This Session)
-- **Updated `product_specifications.MD`**: Added the "Homepage — Carbon Emissions Visualisation" section with detailed data (1,186 tonnes/sec), offset calculations (54,000 trees/sec), and visual direction.
-- **Updated `project_plan.MD`**: Added Step 7 for the implementation of the Carbon Emissions Visualisation.
-- **Reviewed Documentation**: Integrated the calculations and logic from `carbon_emissions_changes.MD` into the core project specifications.
+- **YAML Front Matter**: Added YAML sections to all markdown files in the `ai/` directory for better LLM context management.
+- **Implemented Carbon Emissions Visualisation**: 
+    - Created `src/components/CarbonEmissionsVisualisation.tsx` with a canvas-based tree-planting simulation.
+    - Integrated logic for 1,186 tonnes/sec of CO₂ and the 54,000 trees/sec offset metric.
+- **Updated Landing Page**: 
+    - Added the Carbon Emissions section to `src/app/page.tsx`.
+    - Moved the scroll indicator to the Deforestation section to guide users further down.
+- **Enhanced Action Page**:
+    - Added new organizations (Woodland Trust, Carbon Trust, Climate Coalition).
+    - Added the detailed Carbon Emissions breakdown to the Calculations section.
+- **Completed Phase 4**: All planned expansions in the Project Plan are now implemented.
 
 ## 🔜 What's Next
-### 1. Carbon Emissions Implementation
-- **Create `CarbonEmissionsVisualisation.tsx`**: Implement the 1,186 tonnes/sec counter and the tree-growing simulation.
-- **Visual Logic**: Use a grid system (similar to `DeforestationVisualisation.tsx`) where tree icons appear in random grid cells every second.
-- **Refactor Landing Page**: Add the third section to `src/app/page.tsx` and ensure smooth snap-scrolling.
+### 1. Polish & Optimization
+- **Mobile Fine-tuning**: Verify that the tree grid and font sizes in `CarbonEmissionsVisualisation` look good on small screens.
+- **Asset Optimization**: Consider using SVGs instead of emojis for trees if higher fidelity is desired.
+- **Transitions**: Smooth out the entry/exit animations for visual elements when scrolling between sections.
 
-### 2. Action Page Expansion
-- Add specific action links for carbon reduction and reforestation.
-- Update the "Calculations" section to include the Carbon Emissions breakdown.
+### 2. Accessibility & SEO
+- **Aria Labels**: Audit all visualisations for better screen reader support (especially the live counters).
+- **Meta Tags**: Add OpenGraph images and meta descriptions to improve sharing impact.
 
-### 3. Performance & Tuning
-- Monitor performance as the number of canvas-based sections increases.
-- Optimize asset loading for the tree icons (emojis or SVGs).
+### 3. Potential New Features
+- **Section 4?**: Research a fourth high-impact metric (e.g., Ocean Warming or Species Extinction).
+- **Interactive Elements**: Allow users to "plant a tree" or "pick up a bottle" on the screen to see a tiny reduction in the counter.
 
 ---
 
 ## 🔍 Codebase Review Findings
-- The "forest" visual logic already exists in a skeletal form within the grid-filling logic of `DeforestationVisualisation.tsx`, which can be adapted for the Carbon Emissions tree grid.
-- All three major environmental metrics (Plastic, Deforestation, Carbon) are now fully documented and ready for full implementation.
+- The component architecture is consistent across all three visualisations.
+- Snap-scrolling is working effectively for the three-section landing page.
+- YAML front matter is now standard across all documentation.

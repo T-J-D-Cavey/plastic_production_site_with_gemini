@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BottleVisualisation from "@/components/BottleVisualisation";
 import DeforestationVisualisation from "@/components/DeforestationVisualisation";
+import CarbonEmissionsVisualisation from "@/components/CarbonEmissionsVisualisation";
 
 export default function Home() {
   return (
@@ -8,6 +9,11 @@ export default function Home() {
       {/* Section 1: Plastic Production */}
       <section className="relative h-screen snap-start">
         <BottleVisualisation />
+      </section>
+
+      {/* Section 2: Deforestation */}
+      <section className="relative h-screen snap-start">
+        <DeforestationVisualisation />
         
         {/* Scroll Indicator */}
         <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50">
@@ -27,9 +33,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 2: Deforestation */}
+      {/* Section 3: Carbon Emissions */}
       <section className="relative h-screen snap-start">
-        <DeforestationVisualisation />
+        <CarbonEmissionsVisualisation />
       </section>
 
       {/* CTA Button - Fixed at bottom */}
@@ -38,7 +44,7 @@ export default function Home() {
           href="/action"
           className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl hover:shadow-blue-500/20 whitespace-nowrap"
         >
-          Do Something About It
+          TAKE ACTION
         </Link>
       </div>
     </main>

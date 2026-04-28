@@ -1,3 +1,8 @@
+---
+title: Project Plan
+description: Roadmap for the Climate Awareness MVP, tracking progress across phases.
+relevance: High-level overview of project milestones and completion status.
+---
 # Project Plan — Climate Awareness MVP
 
 ## Phase 1: Foundation
@@ -32,7 +37,7 @@
     - Re-introduce scroll indicators to guide the user to the second section.
     - Ensure the CTA "Do Something About It" remains accessible or is repeated effectively.
 
-- [ ] **Step 7: Carbon Emissions Visualisation**
+- [x] **Step 7: Carbon Emissions Visualisation**
     - Implement the "1,186 tonnes of CO₂ per second" simulation as defined in `carbon_emissions_changes.MD`.
     - Create a visual system where a tree icon (🌳) appears every second, representing 54,000 mature trees needed to offset that emission.
     - Icons should appear in random positions but snap to a grid, eventually forming a "forest" that fills the screen and resets.
