@@ -1,6 +1,6 @@
 {
-  "name": "climate_project_gemini_2.0",
-  "version": "1.1.0",
+  "name": "every_second_counts_climate",
+  "version": "2.1.0",
   "private": false,
   "scripts": {
     "dev": "next dev",

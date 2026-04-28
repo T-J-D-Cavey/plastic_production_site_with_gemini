@@ -152,7 +152,7 @@ export default function CarbonEmissionsVisualisation() {
         
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
           <p className="text-lg md:text-2xl text-stone-300 leading-relaxed drop-shadow-md">
-            Every second, 1,186 tonnes of CO₂ enter the atmosphere. We would need 54k trees growing for a year to absorb that much.
+            Every second, 1,186 tonnes of CO₂ enter the atmosphere. We would need <span className="text-white font-bold underline decoration-orange-500 underline-offset-8">54k trees</span> growing for a year to absorb that much.
           </p>
           
           <div className="mt-12 flex flex-col items-center">

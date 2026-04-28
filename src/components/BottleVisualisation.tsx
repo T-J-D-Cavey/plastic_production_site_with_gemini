@@ -189,11 +189,13 @@ export default function BottleVisualisation() {
           <div className="mt-12 flex flex-col items-center">
             <div className="flex items-center gap-6 bg-slate-900/80 backdrop-blur-sm px-8 py-4 rounded-2xl border border-slate-800 shadow-2xl">
               <div className="flex flex-col items-center">
-                <div className="w-5 h-12 bg-blue-500/70 rounded-sm relative mb-1">
-                  <div className="absolute top-0 left-0 w-full h-2 bg-white/30 rounded-t-sm"></div>
-                  <div className="absolute top-1/2 left-0 w-full h-3 bg-white/10"></div>
+                <div className="w-5 h-10 bg-blue-500/70 rounded-sm relative mb-1 mt-3">
+                  {/* Bottle Neck */}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-2.5 h-3 bg-blue-500/70 rounded-t-sm"></div>
+                  {/* Label/Accent */}
+                  <div className="absolute top-1/4 left-0 w-full h-3 bg-white/20"></div>
                 </div>
-                <div className="text-[10px] font-bold text-blue-400/60">1 BOTTLE</div>
+                <div className="text-[10px] font-bold text-blue-400/60 mt-1">1 BOTTLE</div>
               </div>
               
               <div className="text-2xl font-light text-slate-500">=</div>

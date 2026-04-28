@@ -199,6 +199,21 @@ export default function Action() {
             )}
           </div>
         </section>
+
+        <section className="mt-12 mb-24 p-8 md:p-12 rounded-3xl bg-slate-900/30 border border-slate-800/50">
+          <h2 className="text-3xl font-black mb-6">Context from the author</h2>
+          <div className="space-y-4 text-slate-400 text-lg leading-relaxed">
+            <p>
+              [Placeholder text: The author will provide copy here outlining their thoughts on the site and the problems it attempts to communicate.]
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            </p>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </section>
       </div>
     </main>
   );
