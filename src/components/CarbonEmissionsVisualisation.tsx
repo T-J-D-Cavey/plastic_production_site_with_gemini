@@ -147,7 +147,7 @@ export default function CarbonEmissionsVisualisation() {
           >
             {(totalCO2 / 1000).toFixed(1)}k
           </span>{" "}
-          tonnes of CO₂ have been released from fossil fuels alone
+          tonnes of CO₂ have been released from burning fossil fuels
         </h1>
         
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
