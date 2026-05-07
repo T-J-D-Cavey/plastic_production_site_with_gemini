@@ -139,7 +139,7 @@ export default function CarbonEmissionsVisualisation() {
       
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 select-none pointer-events-none">
         <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-center max-w-4xl mb-8 leading-tight drop-shadow-lg">
-          Since you arrived,{" "}
+          Since you arrived, burning fossil fuels has released{" "}
           <span 
             className="text-orange-500 tabular-nums"
             aria-live="polite"
@@ -147,12 +147,12 @@ export default function CarbonEmissionsVisualisation() {
           >
             {(totalCO2 / 1000).toFixed(1)}k
           </span>{" "}
-          tonnes of CO₂ have been released from burning fossil fuels
+          tonnes of CO₂ into our atmosphere
         </h1>
         
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
           <p className="text-lg md:text-2xl text-stone-300 leading-relaxed drop-shadow-md">
-            Every second, 1,186 tonnes of CO₂ enter the atmosphere. We would need <span className="text-white font-bold underline decoration-orange-500 underline-offset-8">54k trees</span> growing for a year to absorb that much.
+            Every second, 1.2k tonnes of CO₂ enter the atmosphere from burning fossil fuels. We would need <span className="text-white font-bold underline decoration-orange-500 underline-offset-8">54k trees</span> growing for a year to absorb that much.
           </p>
           
           <div className="mt-12 flex flex-col items-center">

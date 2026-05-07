@@ -4,41 +4,41 @@ import Link from "next/link";
 import { useState } from "react";
 
 const ACTIONS = [
+    {
+    title: "Petition Parliament",
+    description: "Sign petitions to influence government policy and regulations.",
+    url: "https://petition.parliament.uk/",
+    color: "border-purple-500 hover:bg-purple-500/10",
+  },
   {
-    title: "Support Greenpeace UK",
-    description: "Take action on plastic pollution and join the fight for a greener future.",
+    title: "Greenpeace UK",
+    description: "Together we can take on the world’s worst polluters and solve its biggest problems.",
     url: "https://www.greenpeace.org.uk/take-action/",
     color: "border-green-500 hover:bg-green-500/10",
   },
   {
     title: "Friends of the Earth",
-    description: "Join the campaign to end plastic pollution and protect our planet.",
+    description: "Make a difference for people and planet",
     url: "https://friendsoftheearth.uk/take-action",
     color: "border-blue-500 hover:bg-blue-500/10",
   },
   {
     title: "The Woodland Trust",
-    description: "Help plant trees and protect ancient woodland to absorb carbon and restore nature.",
-    url: "https://www.woodlandtrust.org.uk/",
+    description: "Our woods offer us so much. And with your support, we can ensure they’re always there, free for everyone to enjoy.",
+    url: "https://www.woodlandtrust.org.uk/support-us/give/donations/",
     color: "border-emerald-500 hover:bg-emerald-500/10",
   },
   {
     title: "Carbon Trust",
-    description: "Advice and resources for individuals and businesses to reduce their carbon footprint.",
+    description: "We partner with businesses, governments and financial institutions worldwide to accelerate their journeys to Net Zero.",
     url: "https://www.carbontrust.com/",
     color: "border-orange-500 hover:bg-orange-500/10",
   },
   {
     title: "The Climate Coalition",
-    description: "The UK's largest group of people dedicated to action on the climate and nature crisis.",
+    description: "Together for people, climate and nature",
     url: "https://www.theclimatecoalition.org/",
     color: "border-red-500 hover:bg-red-500/10",
-  },
-  {
-    title: "Petition Parliament",
-    description: "Sign petitions to influence government policy on plastic production and emissions.",
-    url: "https://petition.parliament.uk/",
-    color: "border-purple-500 hover:bg-purple-500/10",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function Action() {
           </h1>
           <div className="space-y-4">
             <p className="text-xl text-slate-400 max-w-2xl">
-              Individual choices matter, but collective action drives change. Choose a path below to help turn the tide on plastic, deforestation, and carbon emissions.
+              Individual choices matter, but collective action drives change. See the list below for organisations and initiatives that can help turn the tide.
             </p>
             <p className="text-slate-500 italic">
               All links lead to external organisations committed to environmental action.
@@ -155,7 +155,7 @@ export default function Action() {
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors"
               >
-                Visit Creator&apos;s GitHub
+                Author details
               </a>
               <button
                 onClick={handleShare}
@@ -182,8 +182,8 @@ export default function Action() {
                   <h4 className="text-sm font-bold text-amber-500 uppercase tracking-wider mb-2">Global Deforestation</h4>
                   <p className="text-slate-300 leading-relaxed">
                     Annual global forest loss is approximately <strong>10.9 million hectares</strong>. 
-                    With 31,536,000 seconds in a year, this results in <strong>0.3459 hectares</strong> lost every second. 
-                    As a football pitch is roughly 0.714 hectares, this equates to <strong>0.5 pitches per second</strong> (one every two seconds).
+                     With 31,536,000 seconds in a year, this results in <strong>0.3459 hectares</strong> lost every second. 
+                     As a football pitch is roughly 0.714 hectares, this equates to <strong>0.5 pitches per second</strong> (one every two seconds).
                   </p>
                 </div>
 
@@ -191,8 +191,8 @@ export default function Action() {
                   <h4 className="text-sm font-bold text-emerald-500 uppercase tracking-wider mb-2">Carbon Emissions</h4>
                   <p className="text-slate-300 leading-relaxed">
                     Global annual CO₂ emissions are approximately <strong>37.4 billion tonnes</strong>. 
-                    Dividing by 31,536,000 seconds per year gives approximately <strong>1,186 tonnes per second</strong>. 
-                    One mature tree absorbs ~0.022 tonnes of CO₂/year, meaning it takes <strong>54,000 trees</strong> growing for a full year to absorb the emissions from just one second.
+                     Dividing by 31,536,000 seconds per year gives approximately <strong>1,186 tonnes per second</strong>. 
+                     One mature tree absorbs ~0.022 tonnes of CO₂/year, meaning it takes <strong>54,000 trees</strong> growing for a full year to absorb the emissions from just one second.
                   </p>
                 </div>
               </div>
@@ -201,48 +201,69 @@ export default function Action() {
         </section>
 
         <section className="mt-12 mb-24 p-8 md:p-12 rounded-3xl bg-slate-900/30 border border-slate-800/50">
-          <h2 className="text-3xl font-black mb-6">Context from the author</h2>
+          <h2 className="text-3xl font-black mb-6">A note from the author</h2>
           <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
             <p>
-              This visualisation exists to make the sheer scale of the climate crisis impossible to ignore. We are facing a global emergency with irreversible impacts, yet it consistently slips out of the daily news cycle.
+              I made this simple site with the aim of helping people to appreciate the scale and rapid rate of destruction that is taking place every second of every day. 
+              We really are facing a global emergency with seemingly irreversible impacts, yet it consistently slips out of the daily news cycle.
             </p>
             <p>
-              However, recognising the scale of the problem is only the first step. We also need to be brutally honest about where the responsibility lies and how complex the solutions actually are.
+              I acknowledge that the issues covered here are complex and an obvious, easy solution without tradeoffs isn't realistic. 
+               As an individual it's easier to distract ourselves with daily life, which is difficult enough to manage. 
+               Therein lies the first problem. I don't think it should be up to us as individuals to tackle this.  
             </p>
             
             <div className="pt-4">
               <h3 className="text-xl font-bold text-white mb-2">The Consumer Myth</h3>
               <p>
-                For too long, the environmental narrative has focused on the choices of the end consumer. This is a distraction—a tactic actively encouraged by the fossil fuel industry to shift the blame away from themselves. The real impetus for change must fall on the biggest contributors: governments and large corporations. They have the power, the infrastructure, and the capital to actually turn the tide.
+                For too long, the environmental narrative has focused on the choices of the end consumer, no doubt a tactic encouraged by companies and media moguls who stand to benefit from the status quo.  
+                 The real impetus for change must lie with the biggest contributors: governments and business. They have the power, the infrastructure, and the capital to actually turn the tide.
               </p>
             </div>
 
             <blockquote className="border-l-4 border-blue-500 pl-6 py-2 my-8">
               <p className="text-2xl font-medium text-slate-200 italic">
-                &quot;We cannot expect companies to voluntarily prioritise societal good over shareholder returns. To fix the climate, we have to change the rules of the game.&quot;
+                &quot;We shouldn't be surprised when companies don't voluntarily prioritise societal good over shareholder returns. To fix the problems we face, we have to change the rules of the game.&quot;
               </p>
             </blockquote>
 
             <div className="pt-4">
-              <h3 className="text-xl font-bold text-white mb-2">The Plastic vs. Forest Catch-22</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Regulations help to solve our climate catch 22s</h3>
               <p>
-                The problems we face are deeply intertwined. For example, if we successfully move away from plastic, we will inevitably need more paper and cardboard, which puts immense pressure on our forests. We absolutely cannot log ancient woodlands and rainforests—which house complex ecosystems that took centuries to build—just to replace plastic packaging.
+                The problems we face are deeply intertwined but I believe government policy is our best chance of finding a fix. 
+                 An example of the complexity is reducing plastic production. 
+                 If we find a way to produce less plastic, we will likely increase demand for wood based materials, driving deforestation.
+                 We absolutely shouldn't log ancient woodlands and rainforests, destroying complex ecosystems that took centuries to emerge, just to reduce plastic usage.
               </p>
               <p className="mt-4">
-                Instead, government policy needs to aggressively fund the planting of &apos;working forests&apos; globally: trees planted specifically to be harvested for materials. To find the vast amount of space required for this without destroying natural habitats, we will have to phase out incredibly inefficient land uses, such as widespread meat farming.
+                Instead, an example of a government policy could be to aggressively fund the planting of &apos;working forests&apos; globally: trees planted specifically to be harvested for materials. 
+                 To find the vast amount of space required for this without destroying natural habitats, another policy could be encourage plant based agriculture and phase out incredibly inefficient land uses, such as widespread meat farming.
               </p>
             </div>
 
             <div className="pt-4">
               <h3 className="text-xl font-bold text-white mb-2">Taxation Drives Innovation</h3>
               <p>
-                I am under no illusions about our current reliance on carbon. Fossil fuels are baked into our economy, and even the AI tools I used to help build this site carry a hefty carbon footprint. There will likely always be niche, unavoidable uses for fossil fuels.
+                I am under no illusions about our current reliance on carbon. Fossil fuels are baked into our economy, and even the AI tools I used to help build this site carry a hefty carbon footprint. 
+                There will likely always be niche, unavoidable uses for fossil fuels.
               </p>
               <p className="mt-4">
-                But that is no excuse to maintain the status quo when better, often cheaper alternatives are available. Because corporations are essentially legally bound to serve their shareholders&apos; bottom line, we have to make pollution expensive.
+                But that is no excuse to maintain the status quo when better, often cheaper alternatives are available. 
+                Because corporations are essentially legally bound to serve their shareholders&apos; interests, we have to make pollution expensive.
               </p>
               <p className="mt-4">
-                Implementing strict carbon and plastic taxes forces companies to care. If they don&apos;t innovate to remove emissions and plastic from their supply chains, their products become too expensive to compete. The companies that innovate best win the market share, the consumer still gets a great product, and society wins because we finally halt the overproduction of harmful waste.
+                Implementing strict carbon and plastic taxes forces companies to care. If they don&apos;t innovate to remove emissions and plastic from their supply chains, their products become too expensive to compete. 
+                The companies that innovate best win the market share, the consumer still gets a great product, and society and the planet benefit.
+              </p>
+            </div>
+              <div className="pt-4">
+              <h3 className="text-xl font-bold text-white mb-2">Just my flawed ideas</h3>
+              <p className="mt-4">
+                My thoughts above are probably wrong in many ways, I'm not qualified enough to find the solutions. But I do believe two things to be true: 1. without government regulations we won't see the change we need to see. 2. Time is running out. 
+                Use your vote, use petitions and join an organisation fighting for change. 
+              </p>
+              <p className="mt-4">
+                Thanks for visiting.  
               </p>
             </div>
           </div>
