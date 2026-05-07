@@ -202,16 +202,49 @@ export default function Action() {
 
         <section className="mt-12 mb-24 p-8 md:p-12 rounded-3xl bg-slate-900/30 border border-slate-800/50">
           <h2 className="text-3xl font-black mb-6">Context from the author</h2>
-          <div className="space-y-4 text-slate-400 text-lg leading-relaxed">
+          <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
             <p>
-              [Placeholder text: The author will provide copy here outlining their thoughts on the site and the problems it attempts to communicate.]
+              This visualisation exists to make the sheer scale of the climate crisis impossible to ignore. We are facing a global emergency with irreversible impacts, yet it consistently slips out of the daily news cycle.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              However, recognising the scale of the problem is only the first step. We also need to be brutally honest about where the responsibility lies and how complex the solutions actually are.
             </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            
+            <div className="pt-4">
+              <h3 className="text-xl font-bold text-white mb-2">The Consumer Myth</h3>
+              <p>
+                For too long, the environmental narrative has focused on the choices of the end consumer. This is a distraction—a tactic actively encouraged by the fossil fuel industry to shift the blame away from themselves. The real impetus for change must fall on the biggest contributors: governments and large corporations. They have the power, the infrastructure, and the capital to actually turn the tide.
+              </p>
+            </div>
+
+            <blockquote className="border-l-4 border-blue-500 pl-6 py-2 my-8">
+              <p className="text-2xl font-medium text-slate-200 italic">
+                &quot;We cannot expect companies to voluntarily prioritise societal good over shareholder returns. To fix the climate, we have to change the rules of the game.&quot;
+              </p>
+            </blockquote>
+
+            <div className="pt-4">
+              <h3 className="text-xl font-bold text-white mb-2">The Plastic vs. Forest Catch-22</h3>
+              <p>
+                The problems we face are deeply intertwined. For example, if we successfully move away from plastic, we will inevitably need more paper and cardboard, which puts immense pressure on our forests. We absolutely cannot log ancient woodlands and rainforests—which house complex ecosystems that took centuries to build—just to replace plastic packaging.
+              </p>
+              <p className="mt-4">
+                Instead, government policy needs to aggressively fund the planting of &apos;working forests&apos; globally: trees planted specifically to be harvested for materials. To find the vast amount of space required for this without destroying natural habitats, we will have to phase out incredibly inefficient land uses, such as widespread meat farming.
+              </p>
+            </div>
+
+            <div className="pt-4">
+              <h3 className="text-xl font-bold text-white mb-2">Taxation Drives Innovation</h3>
+              <p>
+                I am under no illusions about our current reliance on carbon. Fossil fuels are baked into our economy, and even the AI tools I used to help build this site carry a hefty carbon footprint. There will likely always be niche, unavoidable uses for fossil fuels.
+              </p>
+              <p className="mt-4">
+                But that is no excuse to maintain the status quo when better, often cheaper alternatives are available. Because corporations are essentially legally bound to serve their shareholders&apos; bottom line, we have to make pollution expensive.
+              </p>
+              <p className="mt-4">
+                Implementing strict carbon and plastic taxes forces companies to care. If they don&apos;t innovate to remove emissions and plastic from their supply chains, their products become too expensive to compete. The companies that innovate best win the market share, the consumer still gets a great product, and society wins because we finally halt the overproduction of harmful waste.
+              </p>
+            </div>
           </div>
         </section>
       </div>

@@ -6,6 +6,7 @@ relevance: Guide for current and future development sessions.
 # Next Steps
 
 ## ✅ What Was Done (This Session)
+- **Author Context Update**: Replaced the placeholder in `src/app/action/page.tsx` with detailed, formatted copy from the author, including sections on "The Consumer Myth", "The Plastic vs. Forest Catch-22", and "Taxation Drives Innovation".
 - **YAML Front Matter**: Added YAML sections to all markdown files in the `ai/` directory for better LLM context management.
 - **Implemented Carbon Emissions Visualisation**: 
     - Created `src/components/CarbonEmissionsVisualisation.tsx` with a canvas-based tree-planting simulation.
@@ -19,18 +20,12 @@ relevance: Guide for current and future development sessions.
 - **Completed Phase 4**: All planned expansions in the Project Plan are now implemented.
 
 ## 🔜 What's Next
-### 1. Polish & Optimization
-- **Mobile Fine-tuning**: Verify that the tree grid and font sizes in `CarbonEmissionsVisualisation` look good on small screens.
-- **Asset Optimization**: Consider using SVGs instead of emojis for trees if higher fidelity is desired.
-- **Transitions**: Smooth out the entry/exit animations for visual elements when scrolling between sections.
 
-### 2. Accessibility & SEO
-- **Aria Labels**: Audit all visualisations for better screen reader support (especially the live counters).
-- **Meta Tags**: Add OpenGraph images and meta descriptions to improve sharing impact.
+1. **Final Polish & Audit**: Perform a final pass on the visualisations to ensure performance is optimal on lower-end devices.
+2. **Accessibility Pass**: Ensure all buttons and links have proper ARIA labels and the site is navigable via keyboard.
+3. **Deployment**: Prepare the site for hosting (e.g., Vercel, Netlify).
 
-### 3. Potential New Features
-- **Section 4?**: Research a fourth high-impact metric (e.g., Ocean Warming or Species Extinction).
-- **Interactive Elements**: Allow users to "plant a tree" or "pick up a bottle" on the screen to see a tiny reduction in the counter.
+
 
 ---
 
