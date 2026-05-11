@@ -138,14 +138,14 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
             aria-live="polite"
             aria-atomic="true"
           >
-            {Math.floor(totalAnimals).toLocaleString()}
+            {(totalAnimals / 1000).toFixed(1)}k
           </span>{" "}
           land animals have been slaughtered for meat
         </h1>
         
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
           <p className="text-lg md:text-2xl text-stone-300 leading-relaxed drop-shadow-md">
-            Annual global land animal slaughter is approximately 83 billion, equivalent to 2,632 animals every second.
+            Every second, we slaughter ~2.6k animals for food. That's 83 billion animals every year.
           </p>
           
           <div className="mt-12 flex flex-col items-center">

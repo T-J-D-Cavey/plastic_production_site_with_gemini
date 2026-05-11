@@ -11,6 +11,12 @@ const ACTIONS = [
     color: "border-purple-500 hover:bg-purple-500/10",
   },
   {
+    title: "The Climate Coalition",
+    description: "Together for people, climate and nature",
+    url: "https://www.theclimatecoalition.org/",
+    color: "border-red-500 hover:bg-red-500/10",
+  },
+  {
     title: "Greenpeace UK",
     description: "Together we can take on the world’s worst polluters and solve its biggest problems.",
     url: "https://www.greenpeace.org.uk/take-action/",
@@ -33,12 +39,6 @@ const ACTIONS = [
     description: "We partner with businesses, governments and financial institutions worldwide to accelerate their journeys to Net Zero.",
     url: "https://www.carbontrust.com/",
     color: "border-orange-500 hover:bg-orange-500/10",
-  },
-  {
-    title: "The Climate Coalition",
-    description: "Together for people, climate and nature",
-    url: "https://www.theclimatecoalition.org/",
-    color: "border-red-500 hover:bg-red-500/10",
   },
   {
     title: "Viva! - The Charity for Animals",
@@ -128,16 +128,16 @@ export default function Action() {
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:underline"
               >
-                Our World in Data (Plastic Pollution)
-              </a>,{" "}
+                Our World in Data
+              </a> (plastic pollution),{" "}
               <a 
                 href="https://ourworldindata.org/animal-welfare" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:underline"
               >
-                Our World in Data (Animal Welfare)
-              </a>,{" "}
+                Our World in Data
+              </a> (animal welfare),{" "}
               <a 
                 href="https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows" 
                 target="_blank" 
@@ -145,15 +145,15 @@ export default function Action() {
                 className="text-blue-400 hover:underline"
               >
                 FAO
-              </a>, and the{" "}
+              </a> (deforestation), and the{" "}
               <a 
-                href="https://globalcarbonproject.org/carbonbudget/" 
+                href="https://globalcarbonbudget.org/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:underline"
               >
                 Global Carbon Project
-              </a>.
+              </a> (carbon emissions).
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
