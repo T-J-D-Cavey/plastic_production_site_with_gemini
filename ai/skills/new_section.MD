@@ -6,46 +6,54 @@ relevance: Required for AI agents and developers adding new climate-themed visua
 
 # 🏗️ Modular Section Blueprint
 
-To add a new theme (e.g., Ocean Acidification, Ice Melt, Overfishing), follow these steps to maintain consistency and modularity.
+To add a new theme (e.g., Overfishing, Ice Melt, Ocean Acidification), follow this research-to-implementation guide.
 
-## 1. 📊 Data Research & Precomputation
-Before coding, source data from reputable organisations (Our World in Data, FAO, NASA, etc.).
-- **Requirement**: Convert annual data into a **per-second rate**.
-- **Calculation**: (Annual Total) / 31,536,000 seconds = Rate per second.
-- **Visual Analog**: Define what 1 visual item represents (e.g., 1 bottle = 1.4M bottles, 1 tree = 0.5 football pitches).
+## 1. 🔍 Phase 1: Conceptual Design
+Determine the "Impact Unit" that will be visualised.
+- **Metric**: Find a reputable annual figure (NASA, FAO, Our World in Data).
+- **Rate**: Calculate `Annual Total / 31,536,000` to get the **Per-Second Rate**.
+- **Analogy**: Choose a visual item that represents the scale.
+  - *Example*: 1 fish icon = 100,000 tonnes of fish.
+  - *Example*: 1 ice cube = 1,000 tonnes of glacial melt.
+- **Visual Style**: Decide on a primary theme color (e.g., Overfishing = Silver/Grey, Ice Melt = Cyan/White).
 
-## 2. 🎨 Visualization Component (`src/components/[Theme]Visualisation.tsx`)
-Create a new client component following this structure:
-- **Canvas-based**: Use `useRef<HTMLCanvasElement>` and `requestAnimationFrame`.
-- **State**: Track `totalValue` based on `(Date.now() - startTime) / 1000 * RATE_PER_SECOND`.
-- **Message**: "Since you arrived, an equivalent of [X] [Units] has been [Action]".
-- **Key Box**: A UI element showing "1 [Icon] = [Actual Rate] [Units] every second".
-- **Styling**: Use Tailwind CSS for the UI overlay and raw Canvas API for the simulation.
+## 2. 🎨 Phase 2: Visualization Component (`src/components/[Theme]Visualisation.tsx`)
+Create a client component using the standard pattern:
 
-## 3. 📄 Landing Page Integration (`src/app/page.tsx`)
-1. Import the new component.
-2. Add a new `<section>` tag within the `main` container:
-   ```tsx
-   <section className="relative h-screen snap-start">
-     <ThemeVisualisation />
-     {/* Add ScrollIndicator ONLY if this is NOT the final section */}
-     <ScrollIndicator /> 
-   </section>
-   ```
-3. **Important**: If you add a section after the previous "final" section, you MUST add a `<ScrollIndicator />` to the previous section so the user knows to keep scrolling.
+### A. The Simulation (Canvas)
+- Use `useRef<HTMLCanvasElement>` and `requestAnimationFrame`.
+- Implement a particle system or growth simulation.
+- **Flush Mechanism**: Ensure particles/objects are cleared or "recycled" if they exceed a certain count or height to prevent performance lag.
+- **Responsiveness**: Use `resizeCanvas` listener to update `canvas.width/height`.
 
-## 4. ⚡ Action Hub Update (`src/app/action/page.tsx`)
-1. **Link**: Add a new object to the `ACTIONS` array with a relevant organisation.
-   - Choose a unique `color` (Tailwind border/hover classes).
-2. **Source Link**: Add the data source link to the source attribution paragraph.
-3. **Calculations**: Add a new `div` block inside the `showCalculations` section:
-   - Use a unique color for the heading (e.g., `text-pink-500`).
-   - Clearly explain the math: (Source Data) / (Seconds in a year) = (Per-second impact).
+### B. The UI Overlay
+- **Hero Heading**: `Since you arrived, an equivalent of <Count> <Units> have been <Action>`.
+  - Use `tabular-nums` class for the count to prevent flickering.
+- **Context Paragraph**: `Annual global <Metric> is ~<Total>, equivalent to <Per-Second Rate> <Units> every second.`
+- **The "Key Box"**: A rounded, semi-transparent box (`bg-slate-900/80 backdrop-blur-sm`) at the bottom showing:
+  - An icon representation of the visual unit.
+  - An equals sign.
+  - The large per-second number.
+  - A label like `[UNITS] EVERY SECOND`.
+
+## 3. 📄 Phase 3: Landing Page Integration (`src/app/page.tsx`)
+1. Import the component.
+2. Wrap it in a `<section className="relative h-screen snap-start">`.
+3. **Sequential Scrolling**:
+   - Add a `<ScrollIndicator />` to the **previous** section.
+   - Do NOT add a `<ScrollIndicator />` to the new section if it is the new final section.
+
+## 4. ⚡ Phase 4: Action Hub Update (`src/app/action/page.tsx`)
+1. **Link**: Add a new entry to `ACTIONS` array.
+   - Pick a unique Tailwind border/hover color (e.g., `border-pink-500 hover:bg-pink-500/10`).
+2. **Data Source**: Add the organization name and link to the data attribution paragraph.
+3. **Math Breakdown**: Add a new calculation block in the `showCalculations` section:
+   - Use a unique text color for the title (`text-pink-500`).
+   - Clearly state: "Annual [Metric] is [X]. Dividing by [Seconds in Year] gives [Y] per second."
 
 ## 🧪 Validation Checklist
-- [ ] Is the data sourced from a reputable institution?
-- [ ] Are the calculations verified and explained in the Action Hub?
-- [ ] Does the new section snap correctly on scroll?
-- [ ] Is the 'Scroll Indicator' present on the preceding section?
-- [ ] Is the component mobile-responsive?
-- [ ] Does the visualization loop or "flush" to prevent performance degradation?
+- [ ] **Snap Check**: Does the new section snap perfectly into view?
+- [ ] **Performance**: Does the FPS remain stable after 60 seconds of simulation?
+- [ ] **Mobile**: Is the text readable and the Canvas scaled on small screens?
+- [ ] **Math**: Do the figures in the Visualization match the Calculation block in the Action Hub?
+- [ ] **Navigation**: Is there a way to reach the next/previous section (Scroll Indicator/CTA)?

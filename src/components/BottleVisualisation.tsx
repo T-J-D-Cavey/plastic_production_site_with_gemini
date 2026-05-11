@@ -18,7 +18,7 @@ interface Particle {
   angularVelocity: number;
 }
 
-export default function BottleVisualisation() {
+export default function BottleVisualisation({ isActive }: { isActive: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [totalBottles, setTotalBottles] = useState(0);
   const startTimeRef = useRef<number | null>(null);
@@ -28,6 +28,8 @@ export default function BottleVisualisation() {
   const isFlushingRef = useRef<boolean>(false);
 
   useEffect(() => {
+    if (!isActive) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -155,7 +157,7 @@ export default function BottleVisualisation() {
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isActive]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-slate-950">

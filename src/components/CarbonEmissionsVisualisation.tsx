@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 
 const CO2_PER_SECOND = 1186;
-const TREES_PER_SECOND = 1;
 const BACKGROUND_COLOR = "#0c0a09"; // Stone-950 (Dark industrial feel)
 const TREE_EMOJI = "🌳";
 
@@ -14,7 +13,7 @@ interface Tree {
   scale: number;
 }
 
-export default function CarbonEmissionsVisualisation() {
+export default function CarbonEmissionsVisualisation({ isActive }: { isActive: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [totalCO2, setTotalCO2] = useState(0);
   const startTimeRef = useRef<number | null>(null);
@@ -25,6 +24,8 @@ export default function CarbonEmissionsVisualisation() {
   const CELL_SIZE = 40;
 
   useEffect(() => {
+    if (!isActive) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -128,7 +129,7 @@ export default function CarbonEmissionsVisualisation() {
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isActive]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-stone-950">

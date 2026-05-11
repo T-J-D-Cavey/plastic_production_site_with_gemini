@@ -15,7 +15,7 @@ interface Pitch {
   opacity: number;
 }
 
-export default function DeforestationVisualisation() {
+export default function DeforestationVisualisation({ isActive }: { isActive: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [totalPitches, setTotalPitches] = useState(0);
   const startTimeRef = useRef<number | null>(null);
@@ -28,6 +28,8 @@ export default function DeforestationVisualisation() {
   const PADDING = 4;
 
   useEffect(() => {
+    if (!isActive) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -143,7 +145,7 @@ export default function DeforestationVisualisation() {
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isActive]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-emerald-950">

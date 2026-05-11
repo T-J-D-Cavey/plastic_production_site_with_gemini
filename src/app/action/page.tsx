@@ -208,9 +208,9 @@ export default function Action() {
               We really are facing a global emergency with seemingly irreversible impacts, yet it consistently slips out of the daily news cycle.
             </p>
             <p>
-              I acknowledge that the issues covered here are complex and an obvious, easy solution without tradeoffs isn't realistic. 
-               As an individual it's easier to distract ourselves with daily life, which is difficult enough to manage. 
-               Therein lies the first problem. I don't think it should be up to us as individuals to tackle this.  
+              I acknowledge that the issues covered here are complex and an obvious, easy solution without tradeoffs isn&apos;t realistic. 
+               As an individual it&apos;s easier to distract ourselves with daily life, which is difficult enough to manage. 
+               Therein lies the first problem. I don&apos;t think it should be up to us as individuals to tackle this.  
             </p>
             
             <div className="pt-4">
@@ -223,7 +223,7 @@ export default function Action() {
 
             <blockquote className="border-l-4 border-blue-500 pl-6 py-2 my-8">
               <p className="text-2xl font-medium text-slate-200 italic">
-                &quot;We shouldn't be surprised when companies don't voluntarily prioritise societal good over shareholder returns. To fix the problems we face, we have to change the rules of the game.&quot;
+                &quot;We shouldn&apos;t be surprised when companies don&apos;t voluntarily prioritise societal good over shareholder returns. To fix the problems we face, we have to change the rules of the game.&quot;
               </p>
             </blockquote>
 
@@ -233,7 +233,7 @@ export default function Action() {
                 The problems we face are deeply intertwined but I believe government policy is our best chance of finding a fix. 
                  An example of the complexity is reducing plastic production. 
                  If we find a way to produce less plastic, we will likely increase demand for wood based materials, driving deforestation.
-                 We absolutely shouldn't log ancient woodlands and rainforests, destroying complex ecosystems that took centuries to emerge, just to reduce plastic usage.
+                 We absolutely shouldn&apos;t log ancient woodlands and rainforests, destroying complex ecosystems that took centuries to emerge, just to reduce plastic usage.
               </p>
               <p className="mt-4">
                 Instead, an example of a government policy could be to aggressively fund the planting of &apos;working forests&apos; globally: trees planted specifically to be harvested for materials. 
@@ -259,7 +259,7 @@ export default function Action() {
               <div className="pt-4">
               <h3 className="text-xl font-bold text-white mb-2">Just my flawed ideas</h3>
               <p className="mt-4">
-                My thoughts above are probably wrong in many ways, I'm not qualified enough to find the solutions. But I do believe two things to be true: 1. without government regulations we won't see the change we need to see. 2. Time is running out. 
+                My thoughts above are probably wrong in many ways, I&apos;m not qualified enough to find the solutions. But I do believe two things to be true: 1. without government regulations we won&apos;t see the change we need to see. 2. Time is running out. 
                 Use your vote, use petitions and join an organisation fighting for change. 
               </p>
               <p className="mt-4">

@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import BottleVisualisation from "@/components/BottleVisualisation";
 import DeforestationVisualisation from "@/components/DeforestationVisualisation";
@@ -5,23 +8,65 @@ import CarbonEmissionsVisualisation from "@/components/CarbonEmissionsVisualisat
 import ScrollIndicator from "@/components/ScrollIndicator";
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState<number>(0);
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = sectionRefs.current.findIndex((el) => el === entry.target);
+          if (index !== -1) {
+            setActiveSection(index);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <main className="h-screen overflow-y-auto snap-y snap-mandatory">
       {/* Section 1: Plastic Production */}
-      <section className="relative h-screen snap-start">
-        <BottleVisualisation />
+      <section 
+        ref={(el) => { sectionRefs.current[0] = el; }} 
+        className="relative h-screen snap-start"
+      >
+        <BottleVisualisation isActive={activeSection === 0} />
         <ScrollIndicator />
       </section>
 
       {/* Section 2: Deforestation */}
-      <section className="relative h-screen snap-start">
-        <DeforestationVisualisation />
+      <section 
+        ref={(el) => { sectionRefs.current[1] = el; }} 
+        className="relative h-screen snap-start"
+      >
+        <DeforestationVisualisation isActive={activeSection === 1} />
         <ScrollIndicator />
       </section>
 
       {/* Section 3: Carbon Emissions */}
-      <section className="relative h-screen snap-start">
-        <CarbonEmissionsVisualisation />
+      <section 
+        ref={(el) => { sectionRefs.current[2] = el; }} 
+        className="relative h-screen snap-start"
+      >
+        <CarbonEmissionsVisualisation isActive={activeSection === 2} />
+        <ScrollIndicator />
       </section>
 
       {/* CTA Button - Fixed at bottom */}
