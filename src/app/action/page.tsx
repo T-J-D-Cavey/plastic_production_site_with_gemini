@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const ACTIONS = [
-    {
+  {
     title: "Petition Parliament",
     description: "Sign petitions to influence government policy and regulations.",
     url: "https://petition.parliament.uk/",
@@ -39,6 +39,12 @@ const ACTIONS = [
     description: "Together for people, climate and nature",
     url: "https://www.theclimatecoalition.org/",
     color: "border-red-500 hover:bg-red-500/10",
+  },
+  {
+    title: "Viva! - The Charity for Animals",
+    description: "Campaigning for a vegan world to end animal suffering and protect the planet.",
+    url: "https://viva.org.uk/",
+    color: "border-red-600 hover:bg-red-600/10",
   },
 ];
 
@@ -122,7 +128,15 @@ export default function Action() {
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:underline"
               >
-                Our World in Data
+                Our World in Data (Plastic Pollution)
+              </a>,{" "}
+              <a 
+                href="https://ourworldindata.org/animal-welfare" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                Our World in Data (Animal Welfare)
               </a>,{" "}
               <a 
                 href="https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows" 
@@ -193,6 +207,14 @@ export default function Action() {
                     Global annual CO₂ emissions are approximately <strong>37.4 billion tonnes</strong>. 
                      Dividing by 31,536,000 seconds per year gives approximately <strong>1,186 tonnes per second</strong>. 
                      One mature tree absorbs ~0.022 tonnes of CO₂/year, meaning it takes <strong>54,000 trees</strong> growing for a full year to absorb the emissions from just one second.
+                  </p>
+                </div>
+
+                <div className="p-6 bg-slate-950/50 rounded-2xl text-left border border-slate-800">
+                  <h4 className="text-sm font-bold text-red-600 uppercase tracking-wider mb-2">Animal Consumption</h4>
+                  <p className="text-slate-300 leading-relaxed">
+                    Annual global land animal slaughter is approximately <strong>83 billion</strong>. 
+                    Dividing by 31,536,000 seconds in a year results in approximately <strong>2,632 animals</strong> slaughtered every second.
                   </p>
                 </div>
               </div>

@@ -33,9 +33,10 @@ export default function DeforestationVisualisation({ isActive }: { isActive: boo
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    if (startTimeRef.current === null) {
-      startTimeRef.current = Date.now();
-    }
+    // Reset simulation state when section becomes active
+    startTimeRef.current = Date.now();
+    lastPitchTimeRef.current = Date.now();
+    pitchesRef.current = [];
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -67,41 +68,48 @@ export default function DeforestationVisualisation({ isActive }: { isActive: boo
       ctx.fillStyle = FOREST_COLOR;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Add 1 pitch every 2 seconds (0.5 pitches per second)
+      // Add pitches based on elapsed time (1 pitch every 2 seconds)
       const pitchInterval = 2000; 
       if (now - lastPitchTimeRef.current >= pitchInterval) {
-        // Find an empty spot
-        const rows = gridRef.current.length;
-        const cols = gridRef.current[0]?.length || 0;
+        let numToCreate = Math.floor((now - lastPitchTimeRef.current) / pitchInterval);
         
-        if (rows > 0 && cols > 0) {
-          const availableSpots: [number, number][] = [];
-          for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-              if (!gridRef.current[r][c].occupied) {
-                availableSpots.push([r, c]);
+        // Safety clamp: max 5 pitches per frame
+        numToCreate = Math.min(numToCreate, 5);
+
+        for (let i = 0; i < numToCreate; i++) {
+          const rows = gridRef.current.length;
+          const cols = gridRef.current[0]?.length || 0;
+          
+          if (rows > 0 && cols > 0) {
+            const availableSpots: [number, number][] = [];
+            for (let r = 0; r < rows; r++) {
+              for (let c = 0; c < cols; c++) {
+                if (!gridRef.current[r][c].occupied) {
+                  availableSpots.push([r, c]);
+                }
               }
             }
-          }
 
-          if (availableSpots.length > 0) {
-            const [r, c] = availableSpots[Math.floor(Math.random() * availableSpots.length)];
-            gridRef.current[r][c].occupied = true;
-            
-            const offsetX = (canvas.width - (cols * (PITCH_WIDTH + PADDING))) / 2;
-            const offsetY = (canvas.height - (rows * (PITCH_HEIGHT + PADDING))) / 2;
+            if (availableSpots.length > 0) {
+              const [r, c] = availableSpots[Math.floor(Math.random() * availableSpots.length)];
+              gridRef.current[r][c].occupied = true;
+              
+              const offsetX = (canvas.width - (cols * (PITCH_WIDTH + PADDING))) / 2;
+              const offsetY = (canvas.height - (rows * (PITCH_HEIGHT + PADDING))) / 2;
 
-            pitchesRef.current.push({
-              x: offsetX + c * (PITCH_WIDTH + PADDING),
-              y: offsetY + r * (PITCH_HEIGHT + PADDING),
-              w: PITCH_WIDTH,
-              h: PITCH_HEIGHT,
-              opacity: 0,
-            });
-          } else {
-            // Screen is full, reset
-            gridRef.current.forEach(row => row.forEach(cell => cell.occupied = false));
-            pitchesRef.current = [];
+              pitchesRef.current.push({
+                x: offsetX + c * (PITCH_WIDTH + PADDING),
+                y: offsetY + r * (PITCH_HEIGHT + PADDING),
+                w: PITCH_WIDTH,
+                h: PITCH_HEIGHT,
+                opacity: 0,
+              });
+            } else {
+              // Screen is full, reset
+              gridRef.current.forEach(row => row.forEach(cell => cell.occupied = false));
+              pitchesRef.current = [];
+              break; // Stop adding for this frame
+            }
           }
         }
         lastPitchTimeRef.current = now;

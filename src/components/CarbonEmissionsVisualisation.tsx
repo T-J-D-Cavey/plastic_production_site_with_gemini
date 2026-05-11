@@ -29,9 +29,10 @@ export default function CarbonEmissionsVisualisation({ isActive }: { isActive: b
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    if (startTimeRef.current === null) {
-      startTimeRef.current = Date.now();
-    }
+    // Reset simulation state when section becomes active
+    startTimeRef.current = Date.now();
+    lastTreeTimeRef.current = Date.now();
+    treesRef.current = [];
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -63,39 +64,47 @@ export default function CarbonEmissionsVisualisation({ isActive }: { isActive: b
       ctx.fillStyle = BACKGROUND_COLOR;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Add 1 tree every second
+      // Add trees based on elapsed time (1 tree every second)
       const treeInterval = 1000; 
       if (now - lastTreeTimeRef.current >= treeInterval) {
-        const rows = gridRef.current.length;
-        const cols = gridRef.current[0]?.length || 0;
+        let numToCreate = Math.floor((now - lastTreeTimeRef.current) / treeInterval);
         
-        if (rows > 0 && cols > 0) {
-          const availableSpots: [number, number][] = [];
-          for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-              if (!gridRef.current[r][c].occupied) {
-                availableSpots.push([r, c]);
+        // Safety clamp: max 10 trees per frame to prevent stalls
+        numToCreate = Math.min(numToCreate, 10);
+
+        for (let i = 0; i < numToCreate; i++) {
+          const rows = gridRef.current.length;
+          const cols = gridRef.current[0]?.length || 0;
+          
+          if (rows > 0 && cols > 0) {
+            const availableSpots: [number, number][] = [];
+            for (let r = 0; r < rows; r++) {
+              for (let c = 0; c < cols; c++) {
+                if (!gridRef.current[r][c].occupied) {
+                  availableSpots.push([r, c]);
+                }
               }
             }
-          }
 
-          if (availableSpots.length > 0) {
-            const [r, c] = availableSpots[Math.floor(Math.random() * availableSpots.length)];
-            gridRef.current[r][c].occupied = true;
-            
-            const offsetX = (canvas.width - (cols * CELL_SIZE)) / 2;
-            const offsetY = (canvas.height - (rows * CELL_SIZE)) / 2;
+            if (availableSpots.length > 0) {
+              const [r, c] = availableSpots[Math.floor(Math.random() * availableSpots.length)];
+              gridRef.current[r][c].occupied = true;
+              
+              const offsetX = (canvas.width - (cols * CELL_SIZE)) / 2;
+              const offsetY = (canvas.height - (rows * CELL_SIZE)) / 2;
 
-            treesRef.current.push({
-              x: offsetX + c * CELL_SIZE + CELL_SIZE / 2,
-              y: offsetY + r * CELL_SIZE + CELL_SIZE / 2,
-              opacity: 0,
-              scale: 0.5,
-            });
-          } else {
-            // Screen is full, reset
-            gridRef.current.forEach(row => row.forEach(cell => cell.occupied = false));
-            treesRef.current = [];
+              treesRef.current.push({
+                x: offsetX + c * CELL_SIZE + CELL_SIZE / 2,
+                y: offsetY + r * CELL_SIZE + CELL_SIZE / 2,
+                opacity: 0,
+                scale: 0.5,
+              });
+            } else {
+              // Screen is full, reset
+              gridRef.current.forEach(row => row.forEach(cell => cell.occupied = false));
+              treesRef.current = [];
+              break; // Stop adding for this frame
+            }
           }
         }
         lastTreeTimeRef.current = now;

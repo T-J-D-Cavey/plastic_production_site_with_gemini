@@ -33,9 +33,12 @@ export default function BottleVisualisation({ isActive }: { isActive: boolean })
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    if (startTimeRef.current === null) {
-      startTimeRef.current = Date.now();
-    }
+    // Reset simulation state when section becomes active
+    startTimeRef.current = Date.now();
+    lastParticleTimeRef.current = Date.now();
+    particlesRef.current = [];
+    bucketsRef.current = new Array(BUCKET_COUNT).fill(0);
+    isFlushingRef.current = false;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -61,18 +64,25 @@ export default function BottleVisualisation({ isActive }: { isActive: boolean })
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Add one particle every second (1 visual bottle = 1.427M real bottles)
+      // Add particles based on elapsed time (1 visual bottle = 1.427M real bottles)
       if (!isFlushingRef.current && now - lastParticleTimeRef.current >= 1000) {
-        particlesRef.current.push({
-          x: Math.random() * (canvas.width - 100) + 50,
-          y: -50,
-          vx: (Math.random() - 0.5) * 2,
-          vy: Math.random() * 1 + 2,
-          size: Math.random() * 10 + 15,
-          isLanded: false,
-          rotation: Math.random() * Math.PI * 2,
-          angularVelocity: (Math.random() - 0.5) * 0.1,
-        });
+        let numToCreate = Math.floor((now - lastParticleTimeRef.current) / 1000);
+        
+        // Safety clamp: max 5 bottles per frame
+        numToCreate = Math.min(numToCreate, 5);
+
+        for (let i = 0; i < numToCreate; i++) {
+          particlesRef.current.push({
+            x: Math.random() * (canvas.width - 100) + 50,
+            y: -50,
+            vx: (Math.random() - 0.5) * 2,
+            vy: Math.random() * 1 + 2,
+            size: Math.random() * 10 + 15,
+            isLanded: false,
+            rotation: Math.random() * Math.PI * 2,
+            angularVelocity: (Math.random() - 0.5) * 0.1,
+          });
+        }
         lastParticleTimeRef.current = now;
       }
 
