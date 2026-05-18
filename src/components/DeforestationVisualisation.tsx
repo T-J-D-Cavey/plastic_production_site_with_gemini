@@ -181,22 +181,22 @@ export default function DeforestationVisualisation({ isActive }: { isActive: boo
           </p>
           
           <div className="mt-12 flex flex-col items-center">
-            <div className="flex items-center gap-6 bg-emerald-900/60 backdrop-blur-md px-8 py-4 rounded-2xl border border-emerald-800 shadow-2xl">
+            <div className="flex items-center gap-6 bg-stone-900/80 backdrop-blur-md px-8 py-4 rounded-2xl border border-stone-800 shadow-2xl">
               <div className="flex flex-col items-center">
-                <div className="w-10 h-6 border border-amber-500/50 relative mb-1 flex items-center justify-center">
-                   <div className="w-[1px] h-full bg-amber-500/50"></div>
-                   <div className="absolute w-2 h-2 border border-amber-500/50 rounded-full"></div>
+                <div className="w-10 h-6 border border-stone-400/50 relative mb-1 flex items-center justify-center">
+                   <div className="w-[1px] h-full bg-stone-400/50"></div>
+                   <div className="absolute w-2 h-2 border border-stone-400/50 rounded-full"></div>
                 </div>
-                <div className="text-[10px] font-bold text-amber-400/60 uppercase">1 pitch</div>
+                <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">1 pitch</div>
               </div>
               
-              <div className="text-2xl font-light text-emerald-500">=</div>
+              <div className="text-2xl font-light text-stone-500">=</div>
               
               <div className="flex flex-col items-start">
                 <div className="text-2xl md:text-3xl font-mono font-bold text-amber-100 leading-none">
                   0.7
                 </div>
-                <div className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest mt-1">
+                <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mt-1">
                   Hectares every 2 seconds
                 </div>
               </div>

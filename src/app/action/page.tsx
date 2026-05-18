@@ -46,6 +46,12 @@ const ACTIONS = [
     url: "https://viva.org.uk/",
     color: "border-red-600 hover:bg-red-600/10",
   },
+  {
+    title: "WRAP - Food Waste Action Week",
+    description: "Working with governments, businesses and communities to deliver practical solutions to improve resource efficiency.",
+    url: "https://www.wrap.org.uk/",
+    color: "border-lime-600 hover:bg-lime-600/10",
+  },
 ];
 
 export default function Action() {
@@ -145,7 +151,7 @@ export default function Action() {
                 className="text-blue-400 hover:underline"
               >
                 FAO
-              </a> (deforestation), and the{" "}
+              </a> (deforestation), the{" "}
               <a 
                 href="https://globalcarbonbudget.org/" 
                 target="_blank" 
@@ -153,7 +159,23 @@ export default function Action() {
                 className="text-blue-400 hover:underline"
               >
                 Global Carbon Project
-              </a> (carbon emissions).
+              </a> (carbon emissions), and{" "}
+              <a 
+                href="https://wwf.panda.org/discover/our_focus/food_practice/food_loss_and_waste/driven_to_waste_global_food_loss_on_farms/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                WWF
+              </a> &{" "}
+              <a 
+                href="https://www.unep.org/resources/publication/food-waste-index-report-2024" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                UNEP
+              </a> (food waste).
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
@@ -215,6 +237,14 @@ export default function Action() {
                   <p className="text-slate-300 leading-relaxed">
                     Annual global land animal slaughter is approximately <strong>83 billion</strong>. 
                     Dividing by 31,536,000 seconds in a year results in approximately <strong>2,632 animals</strong> slaughtered every second.
+                  </p>
+                </div>
+
+                <div className="p-6 bg-slate-950/50 rounded-2xl text-left border border-slate-800">
+                  <h4 className="text-sm font-bold text-lime-600 uppercase tracking-wider mb-2">Food Waste</h4>
+                  <p className="text-slate-300 leading-relaxed">
+                    Annual global food loss and waste is approximately <strong>2.5 billion tonnes</strong>. 
+                    Dividing by 31,536,000 seconds in a year results in approximately <strong>79 tonnes</strong> of food wasted every second.
                   </p>
                 </div>
               </div>

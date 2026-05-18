@@ -6,6 +6,7 @@ import BottleVisualisation from "@/components/BottleVisualisation";
 import DeforestationVisualisation from "@/components/DeforestationVisualisation";
 import CarbonEmissionsVisualisation from "@/components/CarbonEmissionsVisualisation";
 import MeatConsumptionVisualisation from "@/components/MeatConsumptionVisualisation";
+import FoodWasteVisualisation from "@/components/FoodWasteVisualisation";
 import ScrollIndicator from "@/components/ScrollIndicator";
 
 export default function Home() {
@@ -76,6 +77,15 @@ export default function Home() {
         className="relative h-screen snap-start"
       >
         <MeatConsumptionVisualisation isActive={activeSection === 3} />
+        <ScrollIndicator />
+      </section>
+
+      {/* Section 5: Food Waste */}
+      <section 
+        ref={(el) => { sectionRefs.current[4] = el; }} 
+        className="relative h-screen snap-start"
+      >
+        <FoodWasteVisualisation isActive={activeSection === 4} />
       </section>
 
       {/* CTA Button - Fixed at bottom */}

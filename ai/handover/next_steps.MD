@@ -6,35 +6,33 @@ relevance: Guide for current and future development sessions.
 
 # 🔜 Next Steps
 
-The following steps outline the immediate priorities for refactoring, optimization, and controlled expansion of the project.
+## ✅ Recent Changes
 
-## 1. 🗑️ Remove Biodiversity Section (COMPLETED)
-Revert the recent additions related to the Biodiversity Loss (Insect Apocalypse) section to maintain a clean baseline before the next phase.
-- **Landing Page**: Remove `BiodiversityVisualisation` and its corresponding `<section>` from `src/app/page.tsx`.
-- **Action Hub**: Remove the WWF link, IPBES data attribution, and the biodiversity math breakdown from `src/app/action/page.tsx`.
-- **Cleanup**: Delete `src/components/BiodiversityVisualisation.tsx` and the `ai/skills/biodiversity_changes.MD` (if present).
+### 🍎 Food Waste Section Refactor
+- **State Management**: Switched to `useState` for the `totalWaste` counter, ensuring consistency with other sections.
+- **Simplified Rendering**: Replaced `offscreenCanvas` with direct `ctx.fillText` for better maintainability without sacrificing performance.
+- **Metric Logic Fix**: Corrected the Key Box to show "79 Tonnes every second" as the primary rate.
+- **Flush Standardization**: Implemented a `setTimeout` based flush mechanism matching the `BottleVisualisation` pattern.
+- **Visual Alignment**: Updated styling to use `bg-stone-900/80`, `rounded-2xl`, and `border-stone-800`.
 
-## 2. ⚡ Performance Optimization: Conditional Visualisations (COMPLETED)
-Modify the homepage logic to ensure the application remains performant as more sections are added.
-- **Intersection Observer**: Implement an Intersection Observer in `src/app/page.tsx` to track which section is currently in view.
-- **Conditional Execution**: Pass an `isActive` prop to each visualisation component. The internal simulation logic (Canvas animations, particle updates, etc.) must only execute when `isActive` is true.
-- **Resource Management**: Ensure that when a user scrolls away, the animation loop is paused and any non-persistent resources are throttled.
+### 🎨 Project-Wide Consistency Pass
+- **Typography**: Standardized icon and unit labels across all visualizations using `text-stone-400` and `tracking-widest`.
+- **Key Box Styling**: Applied the "Stone Theme" (`bg-stone-900/80`, `border-stone-800`) to `MeatConsumption`, `CarbonEmissions`, and `Deforestation` sections.
+- **Scroll Continuity**: Verified section ordering and `ScrollIndicator` placement in the main landing page.
+- **Data Verification**: Confirmed all visualization figures align with the calculation block in the Action Hub.
 
-## 3. ✅ Update 'New Section' Workflow (COMPLETED)
-Refactor the `ai/skills/new_section.MD` skill to enforce a research-first approach.
-- **Two-Phase Process**: Split the blueprint into "Phase 1: Research & Proposal" and "Phase 2: Implementation".
-- **Approval Gate**: Explicitly state that the agent must stop and present a structured proposal (Source, Metrics, Visual Metaphor, Math) for user approval before writing any code for a new section.
-- **Status**: Successfully refactored `ai/skills/new_section.MD`.
+## 📋 To Do Next
 
-## 4. 🔍 Research: Domesticated Animal Consumption (COMPLETED)
-Initiate the new research-first workflow outlined in next_section.MD file, for a new section focused on the scale of animal agriculture.
-- **Theme**: The number of domesticated animals killed for human meat consumption.
-- **Objective**: Conduct "Phase 1" research as defined in the updated blueprint in next_section.MD file.
-- **Output**: Proposal approved and documented in `ai/skills/meat_consumption_changes.MD`.
+### 🛠️ Fix Food Waste Visual Logic & Performance
+- [x] **Scale Correction**: Redefine the visual scale so **1 burger = 79.28 tonnes**. Currently, it is spawning 1 burger per tonne (~79 burgers/sec), which causes performance lag and visual clutter.
+- [x] **Spawning Logic**: Update `FoodWasteVisualisation.tsx` to spawn exactly **one burger per second**.
+  - Logic should trigger when `Math.floor(elapsedSeconds)` increments.
+- [x] **Visual Impact**: Increase the size of the burger particles slightly (e.g., `40-60px` range) and increase their contribution to the "mound" (`bucketsRef`) so the pile still grows effectively despite the lower particle count.
+- [x] **Documentation Sync**: Update `ai/skills/food_waste_changes.MD` to reflect the new scale (1 burger = 79 tonnes).
+- [x] **Performance Audit**: Verify that the FPS is stable (60 FPS) on both mobile and desktop after the change.
 
-## 5. 🛠️ Fix Meat Consumption & Performance Issues (COMPLETED)
-Address the reported "Out of Memory" crashes and functional bugs in the new visualisations.
-- **Critical Fix (Memory Leak)**: The `lastParticleTimeRef` (and similar refs in other components) now initializes to `Date.now()` upon activation, preventing massive loops.
-- **Safety Clamping**: Implemented maximum limits on particles/trees/pitches created per frame to prevent memory spikes while maintaining statistical accuracy at standard frame rates.
-- **Timer Consistency**: Standardized `startTimeRef` and visual state to reset upon activation, providing a clear "Since you arrived" experience for each section.
-- **Visualisation Audit**: Applied these safety patterns across all components (`Bottle`, `Deforestation`, `CarbonEmissions`, and `MeatConsumption`).
+### 🧪 Final Project Polish
+- [x] **Navigation Check**: Ensure all `ScrollIndicator` components are correctly pointing to the next section and that the final section (Food Waste) correctly lacks one.
+- [x] **Data Audit**: Final pass on all visualization components to ensure the "Key Box" metrics match the logic in `src/app/action/page.tsx`.
+- [x] **Responsive Review**: Check that all text overlays are legible on small screens and don't overlap with the canvas animations.
+
