@@ -226,17 +226,17 @@ export default function Action() {
           <h2 className="text-3xl font-black mb-6">A note from the author</h2>
           <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
             <p>
-              I made this simple site with the aim of helping people to appreciate the scale and rapid rate of destruction that is taking place every second of every day. 
-              We really are facing a global emergency with seemingly irreversible impacts, yet it consistently slips out of the daily news cycle.
+              I made this site with the aim of helping people to appreciate the scale and rate of destruction that is taking place every second of every day. 
+              We're facing a global emergency with seemingly irreversible impacts, yet it consistently slips out of the daily news cycle.
             </p>
             <p>
-              I acknowledge that the issues covered here are complex and an obvious, easy solution without tradeoffs isn&apos;t realistic. 
-               As an individual it&apos;s easier to distract ourselves with daily life, which is difficult enough to manage. 
+              The issues covered here are complex and if a solution exists it isn't easy or obvious. 
+               As an individual it&apos;s easier to focus on daily life, which is difficult enough to manage. 
                Therein lies the first problem. I don&apos;t think it should be up to us as individuals to tackle this.  
             </p>
             
             <div className="pt-4">
-              <h3 className="text-xl font-bold text-white mb-2">The Consumer Myth</h3>
+              <h3 className="text-xl font-bold text-white mb-2">The consumer myth</h3>
               <p>
                 For too long, the environmental narrative has focused on the choices of the end consumer, no doubt a tactic encouraged by companies and media moguls who stand to benefit from the status quo.  
                  The real impetus for change must lie with the biggest contributors: governments and business. They have the power, the infrastructure, and the capital to actually turn the tide.
@@ -250,28 +250,28 @@ export default function Action() {
             </blockquote>
 
             <div className="pt-4">
-              <h3 className="text-xl font-bold text-white mb-2">Regulations help to solve our climate catch 22s</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Regulations  can help solve our climate catch 22s</h3>
               <p>
                 The problems we face are deeply intertwined but I believe government policy is our best chance of finding a fix. 
                  An example of the complexity is reducing plastic production. 
                  If we find a way to produce less plastic, we will likely increase demand for wood based materials, driving deforestation.
-                 We absolutely shouldn&apos;t log ancient woodlands and rainforests, destroying complex ecosystems that took centuries to emerge, just to reduce plastic usage.
+                 We absolutely shouldn&apos;t log ancient woodlands and rainforests, destroying complex ecosystems that took centuries to emerge, just to reduce plastic usage. 
               </p>
               <p className="mt-4">
-                Instead, an example of a government policy could be to aggressively fund the planting of &apos;working forests&apos; globally: trees planted specifically to be harvested for materials. 
-                 To find the vast amount of space required for this without destroying natural habitats, another policy could be encourage plant based agriculture and phase out incredibly inefficient land uses, such as widespread meat farming.
+                Instead, an example of a government policy could be to aggressively fund the planting of &apos;timber plantations&apos; globally: trees planted specifically to be harvested for materials. 
+                 To find the vast amount of space required for this without destroying natural habitats, another policy could be subsidize plant based agriculture and encourage the reduction of incredibly inefficient land uses, such as widespread meat farming.
               </p>
             </div>
 
             <div className="pt-4">
-              <h3 className="text-xl font-bold text-white mb-2">Taxation Drives Innovation</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Taxation drives innovation</h3>
               <p>
                 I am under no illusions about our current reliance on carbon. Fossil fuels are baked into our economy, and even the AI tools I used to help build this site carry a hefty carbon footprint. 
                 There will likely always be niche, unavoidable uses for fossil fuels.
               </p>
               <p className="mt-4">
                 But that is no excuse to maintain the status quo when better, often cheaper alternatives are available. 
-                Because corporations are essentially legally bound to serve their shareholders&apos; interests, we have to make pollution expensive.
+                Because corporations are incentivised to only serve their shareholders&apos; interests, we have to make pollution expensive.
               </p>
               <p className="mt-4">
                 Implementing strict carbon and plastic taxes forces companies to care. If they don&apos;t innovate to remove emissions and plastic from their supply chains, their products become too expensive to compete. 
@@ -279,10 +279,12 @@ export default function Action() {
               </p>
             </div>
               <div className="pt-4">
-              <h3 className="text-xl font-bold text-white mb-2">Just my flawed ideas</h3>
+              <h3 className="text-xl font-bold text-white mb-2">We should be talking about this more</h3>
               <p className="mt-4">
-                My thoughts above are probably wrong in many ways, I&apos;m not qualified enough to find the solutions. But I do believe two things to be true: 1. without government regulations we won&apos;t see the change we need to see. 2. Time is running out. 
-                Use your vote, use petitions and join an organisation fighting for change. 
+                My thoughts above aren't perfect, but this is the sort of thing we should see in media content and hear about in election debates. Without government regulations we won&apos;t see the change we need to see, and time is running out.  
+              </p>
+                            <p className="mt-4">
+                Use your vote, use petitions and join an organisation fighting for change.  
               </p>
               <p className="mt-4">
                 Thanks for visiting.  

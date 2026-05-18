@@ -145,21 +145,21 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
         
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
           <p className="text-lg md:text-2xl text-stone-300 leading-relaxed drop-shadow-md">
-            Every second, we slaughter ~2.6k animals for food. That's 83 billion animals every year.
+            Every second, we slaughter ~2.6k land animals for food. That's 83 billion animals every year.
           </p>
           
           <div className="mt-12 flex flex-col items-center">
             <div className="flex items-center gap-6 bg-stone-900/80 backdrop-blur-md px-8 py-4 rounded-2xl border border-stone-800 shadow-2xl">
               <div className="flex flex-col items-center">
                 <div className="text-3xl mb-1">🩸</div>
-                <div className="text-[10px] font-bold text-red-500 uppercase">10 animals</div>
+                <div className="text-[10px] font-bold text-red-500 uppercase">1 drop</div>
               </div>
               
               <div className="text-2xl font-light text-stone-500">=</div>
               
               <div className="flex flex-col items-start">
                 <div className="text-2xl md:text-3xl font-mono font-bold text-red-600 leading-none">
-                  2,632
+                  10
                 </div>
                 <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mt-1">
                   Animals every second
