@@ -207,13 +207,13 @@ export default function BottleVisualisation({ isActive }: { isActive: boolean })
                   {/* Label/Accent */}
                   <div className="absolute top-1/4 left-0 w-full h-3 bg-white/20"></div>
                 </div>
-                <div className="text-[10px] font-bold text-blue-400/60 mt-1">1 BOTTLE</div>
+                <div className="text-[10px] font-bold text-blue-400 mt-1">1 BOTTLE</div>
               </div>
               
               <div className="text-2xl font-light text-slate-500">=</div>
               
               <div className="flex flex-col items-start">
-                <div className="text-2xl md:text-3xl font-mono font-bold text-blue-100 leading-none">
+                <div className="text-2xl md:text-3xl font-mono font-bold text-blue-400 leading-none">
                   1,427,000
                 </div>
                 <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">

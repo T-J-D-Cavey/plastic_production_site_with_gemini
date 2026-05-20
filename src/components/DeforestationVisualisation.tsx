@@ -187,13 +187,13 @@ export default function DeforestationVisualisation({ isActive }: { isActive: boo
                    <div className="w-[1px] h-full bg-stone-400/50"></div>
                    <div className="absolute w-2 h-2 border border-stone-400/50 rounded-full"></div>
                 </div>
-                <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">1 pitch</div>
+                <div className="text-[10px] font-bold text-amber-400 uppercase tracking-widest">1 pitch</div>
               </div>
               
               <div className="text-2xl font-light text-stone-500">=</div>
               
               <div className="flex flex-col items-start">
-                <div className="text-2xl md:text-3xl font-mono font-bold text-amber-100 leading-none">
+                <div className="text-2xl md:text-3xl font-mono font-bold text-amber-400 leading-none">
                   0.7
                 </div>
                 <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mt-1">

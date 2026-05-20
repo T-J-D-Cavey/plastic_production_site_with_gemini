@@ -152,7 +152,7 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
             <div className="flex items-center gap-6 bg-stone-900/80 backdrop-blur-md px-8 py-4 rounded-2xl border border-stone-800 shadow-2xl">
               <div className="flex flex-col items-center">
                 <div className="text-3xl mb-1">🩸</div>
-                <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">1 drop</div>
+                <div className="text-[10px] font-bold text-red-600 uppercase tracking-widest">1 drop</div>
               </div>
               
               <div className="text-2xl font-light text-stone-500">=</div>

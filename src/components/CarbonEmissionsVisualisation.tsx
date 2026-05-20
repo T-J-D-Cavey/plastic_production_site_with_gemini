@@ -169,13 +169,13 @@ export default function CarbonEmissionsVisualisation({ isActive }: { isActive: b
             <div className="flex items-center gap-6 bg-stone-900/80 backdrop-blur-md px-8 py-4 rounded-2xl border border-stone-800 shadow-2xl">
               <div className="flex flex-col items-center">
                 <div className="text-3xl mb-1">{TREE_EMOJI}</div>
-                <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">1 tree</div>
+                <div className="text-[10px] font-bold text-orange-500 uppercase tracking-widest">1 tree</div>
               </div>
               
               <div className="text-2xl font-light text-stone-500">=</div>
               
               <div className="flex flex-col items-start">
-                <div className="text-2xl md:text-3xl font-mono font-bold text-emerald-400 leading-none">
+                <div className="text-2xl md:text-3xl font-mono font-bold text-orange-500 leading-none">
                   54,000
                 </div>
                 <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mt-1">
