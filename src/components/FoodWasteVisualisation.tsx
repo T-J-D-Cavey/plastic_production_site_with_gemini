@@ -3,29 +3,29 @@
 import { useEffect, useRef, useState } from "react";
 
 const FOOD_WASTE_PER_SECOND = 79.28;
-const BACKGROUND_COLOR = "#0c0d0c"; // Deep earthy dark grey-green
-const BUCKET_COUNT = 40;
-const MAX_PARTICLES = 1000;
+const BACKGROUND_COLOR = "#0c0d0c"; 
+const BURGER_SIZE = 50;
+const SPACING_X = 70;
+const SPACING_Y = 70;
+const MARGIN_TOP = 100;
+const MARGIN_LEFT = 50;
 
-interface Particle {
+interface Burger {
   x: number;
   y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  isLanded: boolean;
-  rotation: number;
-  angularVelocity: number;
+  row: number;
+  isMoving: boolean;
+  spawnTime: number;
 }
 
 export default function FoodWasteVisualisation({ isActive }: { isActive: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [totalWaste, setTotalWaste] = useState(0);
   const startTimeRef = useRef<number | null>(null);
-  const particlesRef = useRef<Particle[]>([]);
-  const bucketsRef = useRef<number[]>(new Array(BUCKET_COUNT).fill(0));
-  const isFlushingRef = useRef<boolean>(false);
-  const totalWasteRef = useRef<number>(0);
+  const burgersRef = useRef<Burger[]>([]);
+  const currentRowRef = useRef<number>(0);
+  const rowStartTimeRef = useRef<number>(0);
+  const isResettingRef = useRef<boolean>(false);
 
   useEffect(() => {
     if (!isActive) return;
@@ -35,10 +35,10 @@ export default function FoodWasteVisualisation({ isActive }: { isActive: boolean
 
     // Reset simulation state when section becomes active
     startTimeRef.current = Date.now();
-    particlesRef.current = [];
-    bucketsRef.current = new Array(BUCKET_COUNT).fill(0);
-    isFlushingRef.current = false;
-    totalWasteRef.current = 0;
+    burgersRef.current = [];
+    currentRowRef.current = 0;
+    rowStartTimeRef.current = Date.now();
+    isResettingRef.current = false;
     setTotalWaste(0);
 
     const ctx = canvas.getContext("2d", { alpha: false });
@@ -47,99 +47,99 @@ export default function FoodWasteVisualisation({ isActive }: { isActive: boolean
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      bucketsRef.current = new Array(BUCKET_COUNT).fill(0);
-      particlesRef.current = [];
+      burgersRef.current = [];
+      currentRowRef.current = 0;
+      rowStartTimeRef.current = Date.now();
     };
 
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
 
     let animationFrameId: number;
-    let lastElapsedSeconds = 0;
+    let lastSpawnSecond = -1;
 
     const render = () => {
       if (startTimeRef.current === null) return;
       const now = Date.now();
       const elapsedSeconds = (now - startTimeRef.current) / 1000;
       
-      const currentWaste = elapsedSeconds * FOOD_WASTE_PER_SECOND;
-      setTotalWaste(currentWaste);
-      
-      totalWasteRef.current = currentWaste;
+      setTotalWaste(elapsedSeconds * FOOD_WASTE_PER_SECOND);
 
       ctx.fillStyle = BACKGROUND_COLOR;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Create new particles: One burger every second
-      const currentSecond = Math.floor(elapsedSeconds);
-      const previousSecond = Math.floor(lastElapsedSeconds);
+      if (isResettingRef.current) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+
+      const cols = Math.floor((canvas.width - MARGIN_LEFT * 2) / SPACING_X);
+      const rows = Math.floor((canvas.height - MARGIN_TOP * 2) / SPACING_Y);
       
-      if (currentSecond > previousSecond && !isFlushingRef.current) {
-        if (particlesRef.current.length < MAX_PARTICLES) {
-          particlesRef.current.push({
-            x: Math.random() * (canvas.width - 60) + 30,
-            y: -60,
-            vx: (Math.random() - 0.5) * 2,
-            vy: 3 + Math.random() * 4,
-            size: 40 + Math.random() * 20, // 40-60px range
-            isLanded: false,
-            rotation: Math.random() * Math.PI * 2,
-            angularVelocity: (Math.random() - 0.5) * 0.1,
+      const currentSecond = Math.floor(elapsedSeconds);
+      
+      // Spawn new burger every second
+      if (currentSecond > lastSpawnSecond) {
+        const rowElapsed = (now - rowStartTimeRef.current) / 1000;
+        // Only spawn if the current row isn't full yet
+        if (rowElapsed < cols) {
+          burgersRef.current.push({
+            x: -BURGER_SIZE,
+            y: MARGIN_TOP + currentRowRef.current * SPACING_Y,
+            row: currentRowRef.current,
+            isMoving: true,
+            spawnTime: now,
           });
         }
-      }
-      lastElapsedSeconds = elapsedSeconds;
-
-      // Check if we should flush (pile too high)
-      const maxPile = Math.max(...bucketsRef.current);
-      if (maxPile > canvas.height * 0.45 && !isFlushingRef.current) {
-        isFlushingRef.current = true;
-        setTimeout(() => {
-          isFlushingRef.current = false;
-          bucketsRef.current = new Array(BUCKET_COUNT).fill(0);
-          particlesRef.current = particlesRef.current.filter(p => !p.isLanded);
-        }, 3000);
+        lastSpawnSecond = currentSecond;
       }
 
-      // Update and draw particles
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
+      // Update positions
+      const speed = SPACING_X; // pixels per second
 
-      particlesRef.current = particlesRef.current.filter((p) => {
-        if (!p.isLanded) {
-          p.x += p.vx;
-          p.y += p.vy;
-          p.rotation += p.angularVelocity;
+      burgersRef.current.forEach((b) => {
+        if (b.isMoving) {
+          const burgerElapsed = (now - b.spawnTime) / 1000;
+          b.x = -BURGER_SIZE + burgerElapsed * speed;
+          
+          // If this is the first burger of the row and it hit the target
+          if (b.row === currentRowRef.current) {
+            const firstBurgerInRow = burgersRef.current.find(nb => nb.row === b.row);
+            if (firstBurgerInRow && firstBurgerInRow.x >= MARGIN_LEFT + (cols - 1) * SPACING_X) {
+              // Find all burgers in this row and snap them
+              const rowBurgers = burgersRef.current.filter(nb => nb.row === b.row);
+              rowBurgers.sort((a, b) => a.spawnTime - b.spawnTime);
+              
+              rowBurgers.forEach((nb, index) => {
+                nb.isMoving = false;
+                nb.x = MARGIN_LEFT + (cols - 1 - index) * SPACING_X;
+              });
 
-          const bucketIdx = Math.floor((p.x / canvas.width) * BUCKET_COUNT);
-          const safeBucketIdx = Math.max(0, Math.min(BUCKET_COUNT - 1, bucketIdx));
-          const currentFloor = canvas.height - bucketsRef.current[safeBucketIdx];
+              currentRowRef.current++;
+              rowStartTimeRef.current = now;
 
-          if (p.y >= currentFloor - p.size / 2.5) {
-            p.y = currentFloor - p.size / 2.5;
-            p.isLanded = true;
-            if (!isFlushingRef.current) {
-              // Increased contribution significantly to compensate for 1/79 particles
-              const weightMultiplier = 12; 
-              bucketsRef.current[safeBucketIdx] += p.size * 0.45 * weightMultiplier;
-              if (safeBucketIdx > 0) bucketsRef.current[safeBucketIdx - 1] += p.size * 0.15 * weightMultiplier;
-              if (safeBucketIdx < BUCKET_COUNT - 1) bucketsRef.current[safeBucketIdx + 1] += p.size * 0.15 * weightMultiplier;
+              // Check if screen is full
+              if (currentRowRef.current >= rows) {
+                isResettingRef.current = true;
+                setTimeout(() => {
+                  burgersRef.current = [];
+                  currentRowRef.current = 0;
+                  rowStartTimeRef.current = Date.now();
+                  isResettingRef.current = false;
+                }, 2000);
+              }
             }
           }
-        } else if (isFlushingRef.current) {
-          p.y += 15;
         }
+      });
 
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.rotation);
-        const drawSize = p.size; // Using base size now that it's larger
-        ctx.font = `${drawSize}px serif`;
-        ctx.fillText("🍔", 0, 0);
-        ctx.restore();
+      // Draw
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font = `${BURGER_SIZE}px serif`;
 
-        const isOffscreen = p.y > canvas.height + 100;
-        return !isOffscreen;
+      burgersRef.current.forEach((b) => {
+        ctx.fillText("🍔", b.x, b.y);
       });
 
       animationFrameId = requestAnimationFrame(render);
