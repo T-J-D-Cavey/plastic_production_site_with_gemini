@@ -5,10 +5,9 @@ import { useEffect, useRef, useState } from "react";
 const FOOD_WASTE_PER_SECOND = 79.28;
 const BACKGROUND_COLOR = "#0c0d0c"; 
 const BURGER_SIZE = 50;
-const SPACING_X = 70;
 const SPACING_Y = 70;
 const MARGIN_TOP = 100;
-const MARGIN_LEFT = 50;
+const TARGET_GAP = 20;
 
 interface Burger {
   x: number;
@@ -73,9 +72,13 @@ export default function FoodWasteVisualisation({ isActive }: { isActive: boolean
         return;
       }
 
-      const cols = Math.floor((canvas.width - MARGIN_LEFT * 2) / SPACING_X);
+      const cols = Math.max(1, Math.floor((canvas.width - TARGET_GAP) / (TARGET_GAP + BURGER_SIZE)));
       const rows = Math.floor((canvas.height - MARGIN_TOP * 2) / SPACING_Y);
       
+      const g = (canvas.width - cols * BURGER_SIZE) / (cols + 1);
+      const spacingX = BURGER_SIZE + g;
+      const speed = spacingX; // pixels per second (speed matches spacing so burgers spawned 1s apart are perfectly spaced)
+
       const currentSecond = Math.floor(elapsedSeconds);
       
       // Spawn new burger every second
@@ -95,8 +98,6 @@ export default function FoodWasteVisualisation({ isActive }: { isActive: boolean
       }
 
       // Update positions
-      const speed = SPACING_X; // pixels per second
-
       burgersRef.current.forEach((b) => {
         if (b.isMoving) {
           const burgerElapsed = (now - b.spawnTime) / 1000;
@@ -105,14 +106,16 @@ export default function FoodWasteVisualisation({ isActive }: { isActive: boolean
           // If this is the first burger of the row and it hit the target
           if (b.row === currentRowRef.current) {
             const firstBurgerInRow = burgersRef.current.find(nb => nb.row === b.row);
-            if (firstBurgerInRow && firstBurgerInRow.x >= MARGIN_LEFT + (cols - 1) * SPACING_X) {
+            const targetX = g + BURGER_SIZE / 2 + (cols - 1) * spacingX;
+            
+            if (firstBurgerInRow && firstBurgerInRow.x >= targetX) {
               // Find all burgers in this row and snap them
               const rowBurgers = burgersRef.current.filter(nb => nb.row === b.row);
               rowBurgers.sort((a, b) => a.spawnTime - b.spawnTime);
               
               rowBurgers.forEach((nb, index) => {
                 nb.isMoving = false;
-                nb.x = MARGIN_LEFT + (cols - 1 - index) * SPACING_X;
+                nb.x = g + BURGER_SIZE / 2 + (cols - 1 - index) * spacingX;
               });
 
               currentRowRef.current++;
