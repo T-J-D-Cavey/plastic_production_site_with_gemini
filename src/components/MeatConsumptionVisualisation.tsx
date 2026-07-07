@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const ANIMALS_PER_SECOND = 2632;
-const PARTICLES_PER_SECOND = 263; // 1 particle = 10 animals
+const PARTICLES_PER_SECOND = 26.32; // 1 particle = 100 animals
 const BACKGROUND_COLOR = "#0c0a09"; // Stone-950
 const PARTICLE_COLOR = "#991b1b"; // Deep Crimson (Red-800)
 
@@ -22,6 +22,7 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
   const particlesRef = useRef<Particle[]>([]);
   const lastParticleTimeRef = useRef<number>(0);
   const floorHeightRef = useRef<number>(0);
+  const isFlushingRef = useRef<boolean>(false);
 
   useEffect(() => {
     if (!isActive) return;
@@ -34,6 +35,7 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
     lastParticleTimeRef.current = Date.now();
     particlesRef.current = [];
     floorHeightRef.current = 0;
+    isFlushingRef.current = false;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -62,7 +64,7 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
 
       // Create new particles based on rate
       const particleInterval = 1000 / PARTICLES_PER_SECOND;
-      if (now - lastParticleTimeRef.current >= particleInterval) {
+      if (!isFlushingRef.current && now - lastParticleTimeRef.current >= particleInterval) {
         let numToCreate = Math.floor((now - lastParticleTimeRef.current) / particleInterval);
         
         // Safety clamp: max 100 particles per frame to prevent memory spikes
@@ -78,7 +80,23 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
             isSettled: false,
           });
         }
+        lastParticleTimeRef.current += numToCreate * particleInterval;
+      } else if (isFlushingRef.current) {
         lastParticleTimeRef.current = now;
+      }
+
+      // Check if we should flush (pile too high)
+      if (floorHeightRef.current > canvas.height * 0.3 && !isFlushingRef.current) {
+        isFlushingRef.current = true;
+      }
+
+      if (isFlushingRef.current) {
+        floorHeightRef.current -= 4; // Drain floor
+        if (floorHeightRef.current <= 0) {
+          floorHeightRef.current = 0;
+          isFlushingRef.current = false;
+          particlesRef.current = particlesRef.current.filter((p) => !p.isSettled);
+        }
       }
 
       // Update and draw particles
@@ -89,7 +107,7 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
           particlesRef.current = particlesRef.current.slice(-5000);
       }
 
-      particlesRef.current.forEach((p) => {
+      particlesRef.current = particlesRef.current.filter((p) => {
         if (!p.isSettled) {
           p.y += p.speed;
           
@@ -98,13 +116,19 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
           if (p.y >= currentFloor) {
             p.y = currentFloor;
             p.isSettled = true;
-            floorHeightRef.current += 0.05; // Slowly rise the floor
+            if (!isFlushingRef.current) {
+              floorHeightRef.current += 0.5; // Slowly rise the floor (0.5px per particle)
+            }
           }
+        } else if (isFlushingRef.current) {
+          p.y += 10; // Fall off screen when flushing
         }
         
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
+
+        return p.y < canvas.height + 20;
       });
 
       // Draw the rising accumulation at the bottom
@@ -145,7 +169,7 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
         
         <div className="flex flex-col items-center gap-6 text-center max-w-3xl">
           <p className="text-lg md:text-2xl text-stone-300 leading-relaxed drop-shadow-md">
-            Every second, we slaughter <span className="text-white font-bold underline decoration-red-500 underline-offset-8">~2.6k land animals</span> for food. That&apos;s 83 billion animals every year.
+            Every second, we slaughter <span className="text-white font-bold underline decoration-red-500 underline-offset-8">~2.6k land animals</span>{" "}for food. That&apos;s 83 billion animals every year.
           </p>
           
           <div className="mt-12 flex flex-col items-center">
@@ -159,7 +183,7 @@ export default function MeatConsumptionVisualisation({ isActive }: { isActive: b
               
               <div className="flex flex-col items-start">
                 <div className="text-2xl md:text-3xl font-mono font-bold text-red-600 leading-none">
-                  10
+                  100
                 </div>
                 <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mt-1">
                   Land animals
