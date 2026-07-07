@@ -38,7 +38,7 @@ Do **not**:
 
 
 ### 3. Follow the Project Plan
-Source of truth: `ai/handover/project_plan.MD` and `ai/handover/next_steps.MD`
+Source of truth: `ai/handover/next_steps.MD`
 
 
 - Work **one step at a time** — no skipping, no batching
@@ -69,9 +69,8 @@ At the start of every session:
 
 1. **Review the codebase** — structure, recent changes, inconsistencies
 2. **Read `product_specifications.MD`** — understand the project
-2. **Read `project_plan.MD`** — identify the current step
 3. **Read `next_steps.MD`** — understand what the last session did and recommended
-4. **Decide what to do** — align plan step, prior recommendations, and codebase state
+4. **Decide what to do** — align plan, prior recommendations, and codebase state
 
 
 ---

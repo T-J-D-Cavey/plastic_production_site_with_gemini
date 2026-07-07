@@ -8,12 +8,10 @@ relevance: Guide for current and future development sessions.
 
 ## ✅ Recent Changes
 
-### 🍎 Food Waste Section Refactor
-- **State Management**: Switched to `useState` for the `totalWaste` counter, ensuring consistency with other sections.
-- **Simplified Rendering**: Replaced `offscreenCanvas` with direct `ctx.fillText` for better maintainability without sacrificing performance.
-- **Metric Logic Fix**: Corrected the Key Box to show "79 Tonnes every second" as the primary rate.
-- **Flush Standardization**: Implemented a `setTimeout` based flush mechanism matching the `BottleVisualisation` pattern.
-- **Visual Alignment**: Updated styling to use `bg-stone-900/80`, `rounded-2xl`, and `border-stone-800`.
+### 🍔 Symmetrical Food Waste Visualisation
+- **Dynamic Columns**: Calculated columns based on a target minimum gap and burger size instead of using a hardcoded column calculation.
+- **Exact Symmetrical Gaps**: Replaced fixed left/right margins and spacing constants with a dynamically calculated gap `g` and spacing `spacingX`. This guarantees that the space between each burger, and between the outer burgers and the portal edges, is completely even and symmetrical on any screen size.
+- **Synchronized Velocity**: Set the burger animation speed to `spacingX` so they travel at exactly the same spacing they occupy when stationary, eliminating visual jump or warping when they snap/dock.
 
 ### 🎨 Project-Wide Consistency Pass
 - **Typography**: Standardized icon and unit labels across all visualizations using `text-stone-400` and `tracking-widest`.
@@ -23,16 +21,8 @@ relevance: Guide for current and future development sessions.
 
 ## 📋 To Do Next
 
-### 🛠️ Fix Food Waste Visual Logic & Performance
-- [x] **Scale Correction**: Redefine the visual scale so **1 burger = 79.28 tonnes**. Currently, it is spawning 1 burger per tonne (~79 burgers/sec), which causes performance lag and visual clutter.
-- [x] **Spawning Logic**: Update `FoodWasteVisualisation.tsx` to spawn exactly **one burger per second**.
-  - Logic should trigger when `Math.floor(elapsedSeconds)` increments.
-- [x] **Visual Impact**: Increase the size of the burger particles slightly (e.g., `40-60px` range) and increase their contribution to the "mound" (`bucketsRef`) so the pile still grows effectively despite the lower particle count.
-- [x] **Documentation Sync**: Update `ai/skills/food_waste_changes.MD` to reflect the new scale (1 burger = 79 tonnes).
-- [x] **Performance Audit**: Verify that the FPS is stable (60 FPS) on both mobile and desktop after the change.
-
-### 🧪 Final Project Polish
-- [x] **Navigation Check**: Ensure all `ScrollIndicator` components are correctly pointing to the next section and that the final section (Food Waste) correctly lacks one.
-- [x] **Data Audit**: Final pass on all visualization components to ensure the "Key Box" metrics match the logic in `src/app/action/page.tsx`.
-- [x] **Responsive Review**: Check that all text overlays are legible on small screens and don't overlap with the canvas animations.
+### 🧪 Project Validation & Expansion
+- [ ] **Verification**: Confirm visual symmetry is correct on local mobile viewports (e.g., via Chrome Developer Tools).
+- [ ] **Section Expansion**: Propose and implement a new topic (e.g. Overfishing, Glacial Melt, Ocean Acidification) following the modular blueprint.
+- [ ] **User Feedback**: Align with the user on any additional styling or feature refinements.
 
